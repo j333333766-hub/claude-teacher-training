@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>필수 프로그램 설치하기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 준비 ①</div><h1>필수 프로그램 설치하기</h1><p>클로드 코드는 내 PC에 깔린 프로그램을 불러서 일합니다. 아래 네 가지만 있으면 연수에서 다루는 작업은 거의 다 됩니다.</p></header>
+<div class="sum"><div><b>무엇을 하나요</b>Git, Node.js, Python, 클로드 코드를 설치하고 확인합니다.</div><div><b>걸리는 시간</b>20분쯤. 한 번만 하면 됩니다.</div><div><b>필요한 것</b>윈도우 10·11 PC, 인터넷, 설치 권한.</div></div>
+<div class="card"><table><tr><th>프로그램</th><th>무엇에 쓰나요</th><th>없으면</th></tr><tr><td>Git</td><td>바뀐 내용을 기록하고 깃허브에 올립니다. 윈도우에서는 클로드 코드가 돌아가는 데도 필요합니다</td><td>클로드 코드가 제대로 실행되지 않습니다</td></tr><tr><td>Node.js · npm</td><td>웹앱 도구(파이어베이스, 앱스스크립트 등)를 설치하고 실행합니다</td><td>배포 도구를 쓸 수 없습니다</td></tr><tr><td>Python</td><td>엑셀·한글·PDF·그림·영상 같은 파일을 다룹니다</td><td>문서 자동화가 막힙니다</td></tr><tr><td>클로드 코드</td><td>터미널에서 일하는 클로드입니다</td><td>없음</td></tr></table></div><h2><span class="n">1</span>파워셸 열기</h2><div class="card"><p><kbd>윈도우</kbd> 키를 누르고 <b>powershell</b>을 입력해 <b>Windows PowerShell</b>을 엽니다. 아래 명령을 한 줄씩 붙여 넣고 <kbd>Enter</kbd>를 누릅니다.</p><p class="tip">설치 도중 “변경을 허용하시겠습니까?” 창이 뜨면 <b>예</b>를 누릅니다.</p></div><h2><span class="n">2</span>Git 설치하기</h2><div class="card"><div class="cmd"><code>winget install --id Git.Git -e</code></div></div><h2><span class="n">3</span>Node.js 설치하기 <small>npm이 함께 깔려요</small></h2><div class="card"><div class="cmd"><code>winget install --id OpenJS.NodeJS.LTS -e</code></div></div><h2><span class="n">4</span>Python 설치하기</h2><div class="card"><div class="cmd"><code>winget install --id Python.Python.3.12 -e</code></div></div><h2><span class="n">5</span>창을 닫았다가 다시 열고 확인하기 <small>중요</small></h2><div class="card"><p>설치한 프로그램은 <b>새로 연 창</b>에서만 잡힙니다. 파워셸을 닫고 다시 연 뒤, 한 줄씩 넣어 버전 숫자가 나오는지 봅니다.</p><div class="cmd"><code>git --version</code></div><div class="cmd"><code>node -v</code></div><div class="cmd"><code>npm -v</code></div><div class="cmd"><code>python --version</code></div><p class="tip">숫자가 나오면 설치된 것입니다. “용어가 인식되지 않습니다”가 나오면 그 프로그램만 다시 설치합니다.</p></div><h2><span class="n">6</span>클로드 코드 설치하기</h2><div class="card"><div class="cmd"><code>irm https://claude.ai/install.ps1 | iex</code></div><p>끝나면 파워셸을 새로 열고 아래 명령으로 시작합니다. 처음에는 브라우저가 열리며 로그인합니다.</p><div class="cmd"><code>claude</code></div><p class="tip">잘 깔렸는지는 <code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">claude --version</code>, 문제가 있을 때는 <code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">claude doctor</code>로 점검합니다.</p></div><h2><span class="n">7</span>나머지는 클로드에게 시키기</h2><div class="card"><p>여기까지 되면, 그다음 도구는 필요할 때 클로드에게 맡기면 됩니다.</p><div class="say"><span>내 PC에 git, node, npm, python, gh, firebase, clasp가 깔려 있는지 확인하고, 없는 것은 설치해 줘.</span></div><table><tr><th>도구</th><th>쓰는 곳</th></tr><tr><td>GitHub CLI (gh)</td><td>깃허브에 올리고 게시하기</td></tr><tr><td>firebase-tools</td><td>파이어베이스 배포</td></tr><tr><td>clasp</td><td>구글 앱스스크립트 올리기·내려받기</td></tr><tr><td>ffmpeg</td><td>영상 자르기·붙이기·자막 넣기</td></tr></table></div><h2><span class="n">?</span>막혔을 때</h2><details><summary>winget을 찾을 수 없다고 나와요</summary><p>마이크로소프트 스토어에서 <b>앱 설치 관리자</b>(App Installer)를 업데이트합니다. 학교 PC에서 막혀 있으면 각 프로그램 누리집에서 설치 파일을 받습니다: <a href="https://git-scm.com/download/win">Git</a>, <a href="https://nodejs.org">Node.js</a>, <a href="https://www.python.org/downloads/">Python</a>.</p></details><details><summary>npm을 실행하면 “스크립트를 실행할 수 없습니다”가 나와요</summary><p>파워셸 기본 설정 때문입니다. 아래 명령을 한 번 넣고 <b>Y</b>를 누릅니다.</p><div class="cmd"><code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code></div></details><details><summary>python을 넣으면 스토어가 열려요</summary><p>윈도우의 가짜 바로가기 때문입니다. <b>설정 → 앱 → 고급 앱 설정 → 앱 실행 별칭</b>에서 python 관련 항목 두 개를 끕니다.</p></details><details><summary>학교 PC라 설치 권한이 없어요</summary><p>정보 담당 선생님께 위 네 가지 설치를 부탁하거나, 개인 노트북에서 진행합니다.</p></details><h2><span class="n">✓</span>점검표</h2><ul class="ck"><li><label><input type="checkbox"><span>git --version에서 숫자가 나온다</span></label></li><li><label><input type="checkbox"><span>node -v와 npm -v에서 숫자가 나온다</span></label></li><li><label><input type="checkbox"><span>python --version에서 숫자가 나온다</span></label></li><li><label><input type="checkbox"><span>claude를 입력하면 클로드 코드가 시작된다</span></label></li></ul>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>

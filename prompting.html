@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일 잘 시키는 말하기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 사용 ②</div><h1>일 잘 시키는 말하기</h1><p>프롬프트 기술보다 중요한 것은 동료에게 일을 맡길 때처럼 말하는 것입니다. 실제로 효과가 컸던 말버릇 여덟 가지입니다.</p></header>
+<div class="sum"><div><b>핵심</b>어디에, 무엇을, 어디까지.</div><div><b>확인</b>“직접 확인해 줘”를 붙입니다.</div><div><b>안전</b>“원본은 그대로 두고”를 붙입니다.</div></div>
+<h2><span class="n">1</span>어디에 있는지부터 알려 주기</h2><div class="card"><p>파일을 설명하지 말고 경로를 줍니다.</p><div class="say"><span>C:\Users\내이름\OneDrive\2026학년도\수학과 폴더의 작업을 이어서 하고 싶어.</span></div></div><h2><span class="n">2</span>결과물의 모습을 말하기</h2><div class="card"><p>“정리해 줘”보다 “무엇으로, 누구에게 보일 것인지”를 말합니다.</p><div class="say"><span>이 내용을 학부모 안내용 한 쪽짜리 문서로 만들어 줘. 표 하나와 문의처를 넣고, 한글 파일로 저장해 줘.</span></div></div><h2><span class="n">3</span>원본을 지키게 하기</h2><div class="card"><div class="say"><span>원본은 그대로 두고 사본을 만들어서 고쳐 줘.</span></div><div class="say"><span>고치기 전에 백업부터 해 둬.</span></div><p class="tip">내가 손으로 다듬은 문서를 클로드가 처음부터 다시 만들면 그 수정이 사라집니다. “다시 만들지 말고 이 파일에서 해당 부분만 고쳐 줘”라고 말합니다.</p></div><h2><span class="n">4</span>스스로 확인하게 하기</h2><div class="card"><p>만들었다는 말만 믿지 않고, 확인한 방법을 함께 받습니다.</p><div class="say"><span>만든 뒤에 직접 열어서 화면을 찍어 확인하고, 확인한 것과 못 한 것을 나눠서 알려 줘.</span></div></div><h2><span class="n">5</span>보여 주면서 고치게 하기</h2><div class="card"><p>말로 설명하기 어려운 것은 화면을 갈무리해서 보여 줍니다.</p><div class="say"><span>(그림 첨부) 물음이 위에 따로 있어서 뭘 묻는지 알기 어려워. 이렇게 배치하면 어떨까?</span></div><p class="tip"><kbd>윈도우</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>로 갈무리한 뒤 저장된 그림을 창에 끌어다 놓습니다.</p></div><h2><span class="n">6</span>기준을 한 번 정해 두기</h2><div class="card"><p>같은 말을 되풀이하지 않도록 원칙을 먼저 줍니다.</p><div class="say"><span>이 자료의 원칙은 두 가지야. 문제 풀이를 가르치지 않는다, 개념을 다시 설명하지 않는다. 지금 내용이 이 원칙에 맞는지 다시 점검해 줘.</span></div></div><h2><span class="n">7</span>고르게 하지 말고 추천을 받기</h2><div class="card"><div class="say"><span>세 가지 방법 가운데 네가 추천하는 것 하나와 그 까닭을 말해 줘.</span></div><div class="say"><span>가 방법으로 해 줘.</span></div></div><h2><span class="n">8</span>끝낼 때 기록을 남기게 하기</h2><div class="card"><div class="say"><span>지금까지 작업한 내용을 내가 다음에 이어서 할 수 있게 md 파일로 정리해서 이 폴더에 저장해 줘.</span></div><div class="say"><span>어제 하던 ○○ 작업 기억해? 이어서 하자.</span></div></div><div class="card"><table><tr><th>이렇게 말하면</th><th>이렇게 바꿔 보세요</th></tr><tr><td>앱 만들어 줘</td><td>○○ 폴더에, 학생이 학번을 넣으면 이름이 뜨고 20등까지 순위를 적는 앱을 만들어 줘</td></tr><tr><td>이거 고쳐 줘</td><td>(화면 첨부) 이 단추를 누르면 아무 변화가 없어. 원인을 찾아 고치고 다시 눌러서 확인해 줘</td></tr><tr><td>예쁘게 해 줘</td><td>원고 PPT와 같은 색(짙은 갈색, 노란색)으로 맞춰 줘</td></tr><tr><td>다 해 줘</td><td>오늘은 이 차시만 하자. 다른 차시는 건드리지 마</td></tr></table></div><div class="warn"><b>맡기더라도 교사가 할 일</b><ul><li>수치·날짜·규정은 원문과 대조합니다.</li><li>학생 개인정보가 들어가는지 확인합니다.</li><li>바깥에 올리거나 보내는 일은 직접 한 번 더 봅니다.</li></ul></div>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>

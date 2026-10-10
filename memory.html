@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>규칙과 기억 쌓기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 사용 ③</div><h1>규칙과 기억 쌓기</h1><p>같은 설명을 매번 되풀이하지 않으려면 규칙과 기억을 파일로 남겨 둡니다. CLAUDE.md, 메모리, 스킬 세 가지를 씁니다.</p></header>
+<div class="sum"><div><b>CLAUDE.md</b>항상 지킬 규칙</div><div><b>메모리</b>프로젝트별로 기억할 사실</div><div><b>스킬</b>되풀이하는 일의 절차</div></div>
+<div class="card"><table><tr><th>구분</th><th>무엇을 담나요</th><th>예</th></tr><tr><td>CLAUDE.md</td><td>언제나 지켜야 하는 규칙</td><td>“저장·삭제·제출 단추는 누르기 전에 먼저 알려 줘”</td></tr><tr><td>메모리</td><td>일하면서 알게 된 사실과 진행 상황</td><td>폴더 위치, 배포 주소, 마감, 지난번에 틀린 것</td></tr><tr><td>스킬</td><td>여러 단계로 된 일의 방법</td><td>공문 제목을 주면 담당자를 찾아 주는 절차</td></tr></table></div><h2><span class="n">1</span>CLAUDE.md에 규칙 적기</h2><div class="card"><p>클로드 코드가 시작할 때 가장 먼저 읽는 글입니다. 직접 쓰지 않고 말로 시키면 됩니다.</p><div class="say"><span>앞으로 문서를 고칠 때는 항상 백업부터 하고, 처음부터 다시 만들지 말고 해당 부분만 고친다는 규칙을 CLAUDE.md에 적어 줘.</span></div><table><tr><th>위치</th><th>적용 범위</th></tr><tr><td>작업 폴더의 CLAUDE.md</td><td>그 폴더에서 일할 때만</td></tr><tr><td>내 계정 폴더의 .claude\CLAUDE.md</td><td>모든 작업</td></tr></table></div><p class="tip">실패한 일이 있으면 그 자리에서 “이 실수를 다시 하지 않도록 규칙으로 적어 줘”라고 말합니다. 규칙은 이렇게 쌓입니다.</p><h2><span class="n">2</span>메모리에 기억시키기</h2><div class="card"><div class="say"><span>이 프로젝트의 폴더 위치와 배포 주소, 다음에 할 일을 기억해 둬.</span></div><div class="say"><span>착수회는 10월 16일 13시야. 수정해 줘.</span></div><div class="say"><span>○○ 작업 기억해? 어디까지 했는지 알려 줘.</span></div><p class="tip">기억이 틀렸으면 바로 고쳐 달라고 합니다. 오래된 기억은 사실과 다를 수 있으니, 날짜와 수치는 한 번씩 확인합니다.</p></div><h2><span class="n">3</span>스킬로 방법 저장하기</h2><div class="card"><p>한 번 잘 된 방식은 스킬로 묶어 둡니다.</p><div class="say"><span>방금 한 방식을 다음에도 쓸 수 있게 스킬로 만들어 줘.</span></div><ul><li>스킬은 폴더 하나에 설명서(SKILL.md)가 들어 있는 모습입니다.</li><li>설명에 적힌 상황이 오면 클로드가 알아서 꺼내 씁니다.</li><li>함정과 주의할 점을 함께 적어 두면 같은 실수를 줄입니다.</li></ul></div><h2><span class="n">4</span>작업 기록 남기기</h2><div class="card"><p>긴 작업은 하루를 끝낼 때 기록을 남겨 두면 다음 날 바로 이어 갈 수 있습니다.</p><div class="say"><span>오늘 작업한 내용, 파일 위치, 고치는 순서, 확인하지 못한 것, 다음에 할 일을 md 파일로 정리해서 이 폴더에 저장해 줘.</span></div></div><div class="warn"><b>기억에 넣지 말 것</b><ul><li>학생 이름, 연락처, 성적 같은 개인정보</li><li>비밀번호와 API 키 (키는 따로 둔 파일 위치만 기억시킵니다)</li><li>남에게 공유할 문서에 서버 주소나 ID가 섞이지 않게 합니다</li></ul></div><h2><span class="n">✓</span>점검표</h2><ul class="ck"><li><label><input type="checkbox"><span>CLAUDE.md에 규칙 하나를 적었다</span></label></li><li><label><input type="checkbox"><span>프로젝트 하나를 기억시켰다</span></label></li><li><label><input type="checkbox"><span>되풀이하는 일을 스킬로 만들었다</span></label></li><li><label><input type="checkbox"><span>작업 기록 md를 남겼다</span></label></li></ul>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>

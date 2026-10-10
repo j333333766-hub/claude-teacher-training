@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>클로드 코드 실행 명령 모음</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.6;font-size:16px;word-break:keep-all}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.nav a{background:#fff1d6;color:#2a1a00;border-radius:99px;padding:5px 13px;font-size:14px;font-weight:800;text-decoration:none}
+.nav a:hover{background:#f7b125}
+h2{font-size:21px;margin:30px 0 4px;display:flex;align-items:center;gap:10px;scroll-margin-top:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+.lead{margin:0 0 8px;font-size:14.5px;color:#6b5320}
+.item{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 12px;margin:8px 0}
+.item .t{font-weight:800;font-size:15.5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.item .d{font-size:14px;color:#5b4a25;margin:2px 0 0}
+.tag{font-size:11.5px;font-weight:800;border-radius:99px;padding:1px 9px;background:#fff1d6;color:#8a6a2a}
+.tag.r{background:#d23a3a;color:#fff}.tag.g{background:#d9f2e3;color:#0a6b45}
+.cmd{display:flex;align-items:stretch;margin:7px 0 0;border-radius:11px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:9px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 14px;cursor:pointer;min-width:66px}
+.cmd button.ok{background:#3ccf8e}
+.item.danger{border-color:#d23a3a;background:#fff6f4}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0;font-size:15px}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.build{background:#fff1d6;border-radius:16px;padding:14px 16px;margin:10px 0}
+.build .opts{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin:8px 0}
+.build label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;font-weight:700;cursor:pointer}
+.build input[type=checkbox],.build input[type=radio]{width:19px;height:19px;margin-top:2px;accent-color:#2a1a00;flex:none}
+.build small{display:block;font-weight:600;color:#6b5320;font-size:12.5px}
+.build .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0;font-size:14.5px;font-weight:700}
+.build select,.build input[type=text]{font:inherit;font-size:14.5px;border:1.5px solid #2a1a00;border-radius:8px;padding:3px 8px;background:#fff}
+.build .risk{display:none;color:#d23a3a;font-weight:800;font-size:13.5px;margin-top:6px}
+code.i{background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.build .opts{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 사용 ④</div><h1>클로드 코드 실행 명령 모음</h1><p>파워셸에서 클로드 코드를 시작할 때 쓰는 명령을 모았습니다. ‘복사’를 누르고 파워셸에 붙여 넣은 뒤 Enter를 누르면 됩니다.</p></header>
+<div class="nav" id="nav"></div>
+
+<h2 id="build"><span class="n">★</span>내 명령 만들기</h2>
+<p class="lead">필요한 것을 고르면 아래에 명령이 만들어집니다.</p>
+<div class="build">
+  <div class="row">시작 방식
+    <label><input type="radio" name="st" value="" checked>새 대화</label>
+    <label><input type="radio" name="st" value="-c">마지막 대화 이어서</label>
+    <label><input type="radio" name="st" value="-r">목록에서 골라서</label>
+  </div>
+  <div class="opts">
+    <label><input type="checkbox" data-f="--remote-control"><span>원격 제어 켜기<small>휴대폰에서 같은 대화 이어 보기</small></span></label>
+    <label><input type="checkbox" data-f="--channels plugin:telegram@claude-plugins-official"><span>텔레그램 채널 켜기<small>메신저로 지시하고 답 받기</small></span></label>
+    <label><input type="checkbox" data-f="--chrome"><span>크롬 연결 켜기<small>내 크롬을 대신 조작</small></span></label>
+    <label><input type="checkbox" data-f="--dangerously-skip-permissions" id="bDanger"><span>허락 묻지 않기 ⚠<small>모든 작업을 묻지 않고 실행</small></span></label>
+  </div>
+  <div class="row">모델 <select id="bModel"><option value="">기본</option><option>opus</option><option>sonnet</option><option>fable</option></select>
+    허락 방식 <select id="bPerm"><option value="">기본(물어보기)</option><option value="plan">계획만 세우기</option><option value="acceptEdits">파일 고치기는 자동</option><option value="auto">자동 판단</option></select></div>
+  <div class="row">세션 이름 <input type="text" id="bName" placeholder="예: 수학일기앱" size="16"></div>
+  <div class="cmd" id="bOut"><code>claude</code></div>
+  <div class="risk" id="bRisk">⚠ ‘허락 묻지 않기’는 파일 삭제와 외부 전송까지 묻지 않고 실행합니다. 아래 주의 사항을 꼭 읽으세요.</div>
+</div>
+
+<div id="list"></div>
+
+<div class="warn" id="danger"><b>--dangerously-skip-permissions 를 쓰기 전에</b>
+<ul>
+<li>이 옵션을 켜면 클로드가 파일을 고치고, 지우고, 명령을 실행하고, 인터넷으로 보내는 일을 <b>하나도 묻지 않고</b> 합니다.</li>
+<li>텔레그램처럼 자리에 없을 때 일을 맡기려면 편리하지만, 그만큼 잘못된 지시도 그대로 실행됩니다.</li>
+<li>중요한 폴더는 백업해 두고, 텔레그램 봇은 <b>내 계정만</b> 허용해 둡니다.</li>
+<li>처음 배우는 동안에는 켜지 않습니다. 하나씩 허락하면서 무엇을 하는지 보는 것이 먼저입니다.</li>
+<li>나이스, 에듀파인, 학생 개인정보가 든 폴더에서는 쓰지 않습니다.</li>
+</ul></div>
+
+<footer>명령은 클로드 코드 2.1.296의 도움말(<code class="i">claude --help</code>)을 기준으로 정리했습니다. 버전이 바뀌면 달라질 수 있습니다.<br>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+var G=[
+ {id:'start',n:1,t:'시작하기',lead:'작업할 폴더에서 파워셸을 연 뒤 넣습니다.',items:[
+  ['새 대화 시작','가장 기본입니다.','claude'],
+  ['시작하면서 바로 일 시키기','따옴표 안에 할 일을 적습니다.','claude "이 폴더에 무엇이 있는지 살펴보고 정리해 줘"'],
+  ['세션에 이름 붙이기','나중에 목록에서 찾기 쉽습니다.','claude -n "수학일기앱"'],
+  ['모델을 정해서 시작','opus, sonnet, fable 같은 이름을 씁니다.','claude --model opus'],
+  ['깊이 생각하게 하기','low, medium, high, xhigh, max 가운데 고릅니다.','claude --effort high'],
+  ['다른 폴더도 함께 쓰게 하기','작업 폴더 밖의 폴더를 추가로 열어 줍니다.','claude --add-dir "D:\\수업자료"']]},
+ {id:'resume',n:2,t:'이어서 하기',lead:'어제 하던 일을 그대로 이어 갑니다.',items:[
+  ['이 폴더의 마지막 대화 이어서','가장 자주 씁니다.','claude -c'],
+  ['예전 대화 목록에서 고르기','화살표로 고르고 Enter를 누릅니다.','claude -r'],
+  ['낱말로 찾아서 이어 가기','대화 이름이나 내용으로 찾습니다.','claude -r "소인수분해"'],
+  ['이어 가되 새 갈래로','원래 대화는 그대로 두고 복사본에서 이어 갑니다.','claude -c --fork-session'],
+  ['데스크탑앱에서 이어서 열기','터미널 대신 Claude 데스크탑앱으로 엽니다.','claude -c --desktop']]},
+ {id:'remote',n:3,t:'밖에서 쓰기 · 연결하기',lead:'원격 제어, 텔레그램, 크롬을 켠 채로 시작합니다.',items:[
+  ['원격 제어를 켜고 시작','휴대폰의 Claude 앱에서 같은 대화를 이어 봅니다.','claude --remote-control'],
+  ['원격 제어에 이름 붙이기','기기가 여러 대일 때 구분하기 좋습니다.','claude --remote-control "학교PC"'],
+  ['마지막 대화를 원격 제어로 이어서','하던 일을 밖에서 계속할 때.','claude -c --remote-control'],
+  ['텔레그램 채널을 켜고 시작','텔레그램 플러그인을 설치하고 연결한 뒤에 씁니다.','claude --channels plugin:telegram@claude-plugins-official'],
+  ['텔레그램 + 허락 묻지 않기','자리를 비운 동안 메시지로 일을 맡길 때. 아래 주의 사항을 읽고 씁니다.','claude --channels plugin:telegram@claude-plugins-official --dangerously-skip-permissions','r'],
+  ['텔레그램 + 원격 제어 함께','메시지로도, 앱으로도 이어 봅니다.','claude --channels plugin:telegram@claude-plugins-official --remote-control'],
+  ['크롬 연결을 켜고 시작','크롬 확장 프로그램이 설치되어 있어야 합니다.','claude --chrome'],
+  ['크롬 연결 없이 시작','브라우저를 건드리지 않게 할 때.','claude --no-chrome']]},
+ {id:'perm',n:4,t:'허락 방식 정하기',lead:'클로드가 어디까지 묻지 않고 할지 정합니다. 위에서 아래로 갈수록 더 많이 맡깁니다.',items:[
+  ['계획만 세우게 하기','아무것도 고치지 않고 계획만 보여 줍니다. 처음 맡기는 큰일에 좋습니다.','claude --permission-mode plan','g'],
+  ['기본 (하나씩 물어보기)','옵션 없이 시작하면 이 방식입니다.','claude','g'],
+  ['파일 고치기는 묻지 않기','파일 수정은 바로 하고, 명령 실행은 물어봅니다.','claude --permission-mode acceptEdits'],
+  ['자동 판단','위험해 보이는 일만 물어봅니다.','claude --permission-mode auto'],
+  ['아무것도 묻지 않기','모든 허락을 건너뜁니다. 아래 주의 사항을 꼭 읽으세요.','claude --dangerously-skip-permissions','r']]},
+ {id:'print',n:5,t:'한 번 묻고 끝내기',lead:'대화 창을 열지 않고 답만 받습니다. 되풀이하는 일에 씁니다.',items:[
+  ['한 번 묻고 답 받기','답을 화면에 찍고 끝납니다.','claude -p "이 폴더의 엑셀 파일 이름을 표로 정리해 줘"'],
+  ['답을 파일로 저장하기','결과가 md 파일로 남습니다.','claude -p "이 폴더의 자료를 요약해 줘" > 요약.md'],
+  ['파일 내용을 넘겨서 묻기','파일을 읽어 그대로 넘깁니다.','Get-Content 회의록.txt | claude -p "결정 사항만 뽑아 줘"']]},
+ {id:'bg',n:6,t:'뒤에서 돌리기',lead:'창을 차지하지 않고 뒤에서 일하게 합니다. 오래 걸리는 일에 씁니다.',items:[
+  ['뒤에서 시작하기','시작하면 짧은 번호(id)를 알려 줍니다.','claude --bg "영상 23편을 모두 다시 만들어 줘"'],
+  ['뒤에서 도는 일 목록 보기','','claude agents'],
+  ['그 일을 이 창으로 불러오기','번호 자리에 알려 준 id를 넣습니다.','claude attach 번호'],
+  ['지금까지 한 일 보기','','claude logs 번호'],
+  ['멈추기','대화는 남아 있어 나중에 이어 갈 수 있습니다.','claude stop 번호']]},
+ {id:'care',n:7,t:'점검하고 관리하기',lead:'잘 안 될 때 먼저 해 보는 것들입니다.',items:[
+  ['버전 보기','','claude --version'],
+  ['설치 상태 점검','문제가 있으면 무엇이 잘못됐는지 알려 줍니다.','claude doctor'],
+  ['최신판으로 올리기','','claude update'],
+  ['로그인 상태 보기','','claude auth status'],
+  ['다시 로그인하기','','claude auth login'],
+  ['설정을 모두 끄고 시작','규칙·스킬·플러그인을 끈 채로 시작합니다. 설정이 꼬였을 때 원인을 찾습니다.','claude --safe-mode'],
+  ['연결된 바깥 서비스(MCP) 보기','','claude mcp list'],
+  ['설치된 플러그인 보기','','claude plugin list'],
+  ['텔레그램 플러그인 설치','','claude plugin install telegram@claude-plugins-official'],
+  ['도움말 전체 보기','','claude --help']]},
+ {id:'mix',n:8,t:'자주 쓰는 조합',lead:'상황별로 그대로 쓰는 명령입니다.',items:[
+  ['출근해서 어제 일 이어 가기','','claude -c'],
+  ['퇴근 전, 집에서 이어 볼 수 있게','','claude -c --remote-control "학교PC"'],
+  ['자리를 비우는 동안 텔레그램으로 맡기기','아래 주의 사항을 읽고 씁니다.','claude --channels plugin:telegram@claude-plugins-official --dangerously-skip-permissions','r'],
+  ['큰일을 맡기기 전에 계획부터','','claude --permission-mode plan'],
+  ['누리집 작업을 시킬 때','','claude --chrome'],
+  ['이름 붙여 새 작업 시작','','claude -n "연수 원고" --model opus']]}
+];
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function copyBtn(box){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var code=box.querySelector('code'),t=code.innerText;
+    var done=function(){b.textContent='복사됨';b.classList.add('ok');setTimeout(function(){b.textContent='복사';b.classList.remove('ok');},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(code);var s=getSelection();s.removeAllRanges();s.addRange(r);try{if(document.execCommand('copy'))done();else b.textContent='Ctrl+C';}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};
+  box.appendChild(b);}
+var list=document.getElementById('list'),nav=document.getElementById('nav');
+nav.appendChild(el('a','','★ 내 명령 만들기')).href='#build';
+G.forEach(function(g){var a=el('a','',g.n+'. '+g.t);a.href='#'+g.id;a.target='_self';nav.appendChild(a);
+  var h=el('h2','','<span class="n">'+g.n+'</span>'+g.t);h.id=g.id;list.appendChild(h);list.appendChild(el('p','lead',g.lead));
+  g.items.forEach(function(it){var d=el('div','item'+(it[3]==='r'?' danger':''));
+    d.appendChild(el('div','t',esc(it[0])+(it[3]==='r'?'<span class="tag r">주의</span>':it[3]==='g'?'<span class="tag g">안전</span>':'')));
+    if(it[1])d.appendChild(el('div','d',esc(it[1])));
+    var c=el('div','cmd','<code>'+esc(it[2])+'</code>');copyBtn(c);d.appendChild(c);list.appendChild(d);});});
+nav.querySelector('a').target='_self';
+var w=el('a','','⚠ 주의 사항');w.href='#danger';w.target='_self';nav.appendChild(w);
+/* 내 명령 만들기 */
+var out=document.getElementById('bOut');copyBtn(out);
+function build(){var p=['claude'];var st=document.querySelector('input[name=st]:checked').value;if(st)p.push(st);
+  var nm=document.getElementById('bName').value.trim();if(nm)p.push('-n "'+nm.replace(/"/g,'')+'"');
+  var m=document.getElementById('bModel').value;if(m)p.push('--model '+m);
+  var danger=document.getElementById('bDanger').checked,pm=document.getElementById('bPerm');pm.disabled=danger;if(pm.value&&!danger)p.push('--permission-mode '+pm.value);
+  [].forEach.call(document.querySelectorAll('.build input[data-f]'),function(c){if(c.checked)p.push(c.getAttribute('data-f'));});
+  out.querySelector('code').textContent=p.join(' ');document.getElementById('bRisk').style.display=danger?'block':'none';}
+[].forEach.call(document.querySelectorAll('.build input,.build select'),function(e){e.addEventListener('input',build);e.addEventListener('change',build);});
+build();
+</script>
+</body>
+</html>

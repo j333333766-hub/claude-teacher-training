@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>파워셸 기초</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 준비 ②</div><h1>파워셸 기초</h1><p>클로드 코드는 파워셸이라는 까만 창에서 돌아갑니다. 명령을 외울 필요는 없고, 아래 몇 가지만 알면 충분합니다.</p></header>
+<div class="sum"><div><b>알아야 할 것</b>창 열기, 폴더 옮기기, 붙여 넣기, 멈추기.</div><div><b>몰라도 되는 것</b>나머지 명령은 클로드가 대신 넣습니다.</div><div><b>기억할 한 가지</b>설치한 뒤에는 창을 새로 엽니다.</div></div>
+<h2><span class="n">1</span>원하는 폴더에서 바로 열기</h2><div class="card"><ol><li>파일 탐색기에서 작업할 폴더를 엽니다.</li><li>위쪽 주소 칸을 누르고 <b>powershell</b>이라고 쓴 뒤 <kbd>Enter</kbd>를 누릅니다.</li><li>그 폴더에서 파워셸이 열립니다. 여기서 <code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">claude</code>를 입력합니다.</li></ol><p class="tip">폴더 빈 곳을 오른쪽 단추로 눌러 <b>터미널에서 열기</b>를 골라도 됩니다.</p></div><h2><span class="n">2</span>꼭 쓰는 조작</h2><div class="card"><table><tr><th>하고 싶은 일</th><th>방법</th></tr><tr><td>붙여 넣기</td><td><kbd>Ctrl</kbd>+<kbd>V</kbd> 또는 마우스 오른쪽 단추</td></tr><tr><td>실행 중인 것 멈추기</td><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td></tr><tr><td>앞에 넣은 명령 다시 부르기</td><td><kbd>↑</kbd></td></tr><tr><td>화면 지우기</td><td><code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">cls</code></td></tr><tr><td>지금 있는 폴더 보기</td><td><code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">pwd</code></td></tr><tr><td>폴더 안 목록 보기</td><td><code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">ls</code></td></tr><tr><td>다른 폴더로 가기</td><td><code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">cd "C:\Users\내이름\Documents\수업자료"</code></td></tr><tr><td>한 단계 위로</td><td><code style="background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em">cd ..</code></td></tr></table></div><h2><span class="n">3</span>폴더 경로 복사하기 <small>자주 써요</small></h2><div class="card"><p>클로드에게 폴더나 파일을 알려 줄 때는 경로를 그대로 붙여 넣는 것이 가장 정확합니다.</p><ul><li>파일이나 폴더를 <kbd>Shift</kbd>를 누른 채 오른쪽 단추로 누르고 <b>경로로 복사</b>를 고릅니다.</li><li>파일을 파워셸 창으로 끌어다 놓아도 경로가 들어갑니다.</li></ul><div class="say"><span>C:\Users\내이름\Documents\수업자료 폴더를 살펴보고 무엇이 들어 있는지 정리해 줘.</span></div></div><h2><span class="n">4</span>알아 두면 덜 놀라는 것</h2><div class="card"><ul><li>글자가 빨갛게 나온다고 모두 큰일은 아닙니다. 문구를 그대로 복사해 클로드에게 보여 주면 됩니다.</li><li>경로에 띄어쓰기나 한글이 있으면 큰따옴표로 감쌉니다.</li><li>프로그램을 설치한 뒤에는 창을 닫고 새로 열어야 명령이 잡힙니다.</li><li><b>관리자 권한으로 실행</b>은 설치가 막힐 때만 씁니다. 평소에는 보통 창으로 충분합니다.</li><li>C:\Windows\System32에서 시작해도 일은 되지만, 작업할 폴더에서 여는 편이 안전합니다.</li></ul></div><div class="warn"><b>이런 명령은 직접 넣지 마세요</b><ul><li>뜻을 모르는 명령을 인터넷에서 복사해 붙여 넣지 않습니다.</li><li>지우는 명령(Remove-Item, del, rm)은 되돌릴 수 없습니다. 지우는 일은 클로드에게 “지우기 전에 목록부터 보여 줘”라고 시킵니다.</li></ul></div><h2><span class="n">✓</span>점검표</h2><ul class="ck"><li><label><input type="checkbox"><span>탐색기 주소 칸에서 파워셸을 열 수 있다</span></label></li><li><label><input type="checkbox"><span>경로를 복사해 붙여 넣을 수 있다</span></label></li><li><label><input type="checkbox"><span>Ctrl+C로 멈출 수 있다</span></label></li><li><label><input type="checkbox"><span>원하는 폴더에서 claude를 시작했다</span></label></li></ul>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>

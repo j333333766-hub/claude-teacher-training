@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>앱스스크립트 연결하기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 코드 × Google Apps Script</div><h1>앱스스크립트 연결하기</h1><p>구글 시트와 붙여 쓰는 간단한 웹앱은 앱스스크립트가 가장 빠릅니다. clasp라는 도구로 연결하면 클로드가 내 PC에서 코드를 고쳐 바로 올립니다.</p></header>
+<div class="sum"><div><b>언제 쓰나요</b>구글 시트에 기록이 쌓이는 신청·조사·기록 앱.</div><div><b>비용</b>무료.</div><div><b>필요한 것</b>구글 계정, Node.js, 클로드 코드.</div></div>
+<h2><span class="n">1</span>clasp 설치하기 <small>한 번만</small></h2><div class="card"><div class="say"><span>clasp가 설치되어 있는지 확인하고, 없으면 설치해 줘.</span></div><p>직접 설치하려면</p><div class="cmd"><code>npm install -g @google/clasp</code></div></div><h2><span class="n">2</span>앱스스크립트 API 켜기 <small>한 번만 · 직접</small></h2><div class="card"><ol><li><a href="https://script.google.com/home/usersettings">script.google.com/home/usersettings</a>에 들어갑니다.</li><li><b>Google Apps Script API</b>를 <b>사용</b>으로 바꿉니다.</li></ol><p class="tip">이것을 켜지 않으면 올릴 때 오류가 납니다.</p></div><h2><span class="n">3</span>로그인하기 <small>한 번만 · 직접</small></h2><div class="card"><p>새 파워셸 창에서 아래 명령을 넣고, 브라우저에서 구글 계정을 골라 <b>허용</b>합니다.</p><div class="cmd"><code>clasp login</code></div><p class="tip">구글 계정이 여러 개면, 앱을 만든 계정으로 로그인했는지 꼭 확인합니다.</p></div><h2><span class="n">4</span>스크립트 ID 찾기</h2><div class="card"><ol><li>앱스스크립트 편집기를 엽니다.</li><li>왼쪽 톱니바퀴 <b>프로젝트 설정</b>을 누릅니다.</li><li><b>스크립트 ID</b>를 복사합니다.</li></ol></div><h2><span class="n">5</span>클로드에게 맡기기</h2><div class="card"><p>이미 있는 앱을 가져와 고칠 때</p><div class="say"><span>C:\Users\내이름\Documents\윷놀이 폴더에 앱스스크립트를 가져와서 고치고 배포하고 싶어. 스크립트 ID는 (붙여 넣기)야.</span></div><p>새로 만들 때</p><div class="say"><span>구글 시트에 응답이 쌓이는 신청 앱을 앱스스크립트로 만들어 줘. 학년·반·번호를 넣으면 이름이 뜨고, 선착순 30명까지만 받게 해 줘.</span></div><p>고친 뒤</p><div class="say"><span>고친 내용을 올리고, 지금 쓰는 배포 주소 그대로 다시 배포해 줘.</span></div><p class="tip">“같은 주소로 다시 배포”라고 말해야 학생에게 나눠 준 주소가 바뀌지 않습니다.</p></div><div class="warn"><b>앱스스크립트의 한계</b><ul><li>동시에 많은 학생이 쓰면 느려지거나 멈출 수 있습니다. 전교생 행사는 파이어베이스가 낫습니다.</li><li>검증받지 않은 웹앱은 사용자가 100명을 넘으면 새 사용자가 막힙니다.</li><li>학교 계정으로 만든 앱은 학교 밖 계정에서 안 열릴 수 있습니다. 배포할 때 접근 범위를 확인합니다.</li><li>구글 계정을 여러 개 로그인한 브라우저에서는 접속 오류가 날 수 있습니다. 시크릿 창에서 열어 봅니다.</li></ul></div><h2><span class="n">?</span>막혔을 때</h2><details><summary>올릴 때 권한 오류가 나와요</summary><p>2번의 API를 켰는지, 앱을 만든 계정으로 로그인했는지 확인합니다. 계정을 바꾸려면</p><div class="cmd"><code>clasp logout</code></div><div class="cmd"><code>clasp login</code></div></details><details><summary>배포했는데 화면이 그대로예요</summary><p>코드만 올리고 배포를 새로 하지 않은 경우입니다. 클로드에게 “배포 버전까지 갱신해 줘”라고 말합니다.</p></details><details><summary>시트 시간이 9시간 어긋나요</summary><p>스크립트의 시간대 설정 때문입니다. 클로드에게 “시간대를 Asia/Seoul로 맞춰 줘”라고 말합니다.</p></details><h2><span class="n">✓</span>점검표</h2><ul class="ck"><li><label><input type="checkbox"><span>clasp를 설치했다</span></label></li><li><label><input type="checkbox"><span>Apps Script API를 켰다</span></label></li><li><label><input type="checkbox"><span>clasp login을 했다</span></label></li><li><label><input type="checkbox"><span>스크립트 ID로 앱을 내 PC에 가져왔다</span></label></li><li><label><input type="checkbox"><span>고친 뒤 같은 주소로 다시 배포했다</span></label></li></ul>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>

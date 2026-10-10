@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엑셀·파워포인트 연결하기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.65;font-size:16px;word-break:keep-all}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px;letter-spacing:.02em}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+.sum div{background:#fff1d6;border-radius:14px;padding:12px 14px;font-size:14.5px}
+.sum b{display:block;font-size:16px;margin-bottom:2px}
+h2{font-size:21px;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:34px;height:34px;border-radius:50%;background:#f7b125;color:#2a1a00;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+h2 small{font-size:13px;font-weight:700;color:#8a6a2a;background:#fff1d6;border-radius:99px;padding:2px 10px}
+.card{background:#fff;border:1.5px solid #ead9b5;border-radius:16px;padding:14px 16px;margin:8px 0}
+.card p{margin:6px 0}.card ul,.card ol{margin:6px 0;padding-left:1.3em}.card li{margin:3px 0}
+.cmd{display:flex;align-items:stretch;margin:8px 0;border-radius:12px;overflow:hidden;border:1.5px solid #2a1a00}
+.cmd code{flex:1;background:#2a1a00;color:#ffe9b8;padding:10px 12px;font-family:Consolas,"D2Coding",monospace;font-size:14.5px;white-space:pre-wrap;word-break:break-all;user-select:all}
+.cmd button{flex:none;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:0 12px;cursor:pointer}
+.say{background:#fff1d6;border-left:6px solid #f7b125;border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700}
+.say:before{content:"클로드에게 이렇게 말해요";display:block;font-size:12.5px;font-weight:800;color:#8a6a2a;margin-bottom:2px}
+.say span{user-select:all}
+.warn{background:#2a1a00;color:#fff;border-radius:14px;padding:12px 16px;margin:10px 0}
+.warn b{color:#f7b125}.warn ul{margin:6px 0 0;padding-left:1.2em}
+.tip{font-size:14.5px;color:#6b5320;margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:#2a1a00;color:#fff;text-align:left;padding:8px 10px}
+td{border-bottom:1px solid #ead9b5;padding:8px 10px;vertical-align:top;background:#fff}
+td:first-child{background:#fff1d6;font-weight:800;white-space:nowrap}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 14px;margin:8px 0}
+summary{font-weight:800;cursor:pointer}
+.ck{list-style:none;padding:0;margin:8px 0}
+.ck li{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;margin:6px 0}
+.ck label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.ck input{width:20px;height:20px;margin-top:3px;accent-color:#f7b125;flex:none}
+a{color:#a35a00;font-weight:700}
+kbd{background:#fff;border:1.5px solid #2a1a00;border-bottom-width:3px;border-radius:6px;padding:0 6px;font:inherit;font-size:.9em;font-weight:800}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}.sum{grid-template-columns:1fr}h2{font-size:19px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">클로드 in 엑셀 · 파워포인트</div><h1>엑셀·파워포인트 연결하기</h1><p>엑셀과 파워포인트에 클로드를 <b>추가 기능</b>으로 넣으면, 파일을 올리지 않고 열어 둔 문서 옆에서 바로 시킬 수 있습니다. 클로드가 시트와 슬라이드를 직접 읽고 고칩니다.</p></header>
+<div class="sum"><div><b>무엇인가요</b>오피스 안 오른쪽 창에서 일하는 클로드.</div><div><b>필요한 것</b>클로드 Pro 이상, Microsoft 365 구독판 또는 웹용 오피스.</div><div><b>걸리는 시간</b>설치 5분. 한 번만.</div></div>
+<div class="card"><table><tr><th>구분</th><th>엑셀</th><th>파워포인트</th></tr><tr><td>잘하는 일</td><td>시트 구조 설명, 수식 만들기·오류 찾기, 표 정리, 차트</td><td>슬라이드 초안, 문장 줄이기, 글머리표를 도해·차트로</td></tr><tr><td>일하는 자리</td><td>열어 둔 통합 문서 안</td><td>열어 둔 발표 자료 안</td></tr><tr><td>예</td><td>편성표의 교과군별 시수 합계 검산</td><td>학부모 설명회 자료 초안</td></tr></table></div><h2><span class="n">1</span>쓸 수 있는지 먼저 확인하기 <small>중요</small></h2><div class="card"><table><tr><th>확인할 것</th><th>되는 경우</th><th>안 되는 경우</th></tr><tr><td>클로드 요금제</td><td>Pro, Max, Team, Enterprise</td><td>무료</td></tr><tr><td>오피스 종류</td><td>Microsoft 365 구독판(윈도우·맥), 웹용 오피스</td><td>오피스 2016·2019 같은 영구 사용권 제품, 아이패드, 안드로이드</td></tr><tr><td>계정 설정</td><td>추가 기능 설치가 허용된 계정</td><td>학교·기관 계정에서 관리자가 스토어를 막아 둔 경우</td></tr></table><p class="tip">학교 PC의 오피스가 2016·2019라면 설치형에서는 쓸 수 없습니다. 이럴 때는 브라우저에서 <a href="https://www.office.com">office.com</a>에 들어가 <b>웹용 엑셀·파워포인트</b>에서 씁니다.</p><p>내 오피스가 구독판인지 보려면 엑셀에서 <b>파일 → 계정</b>을 엽니다. 제품 정보에 <b>Microsoft 365</b>라고 적혀 있으면 구독판입니다.</p></div><h2><span class="n">2</span>추가 기능 설치하기 <small>한 번만</small></h2><div class="card"><ol><li>마이크로소프트 마켓플레이스의 <a href="https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview"><b>Claude for Microsoft 365</b></a> 페이지를 엽니다.</li><li><b>Get it now</b>(지금 받기)를 누릅니다. 마이크로소프트 계정으로 로그인하라는 화면이 나오면 오피스에 쓰는 계정으로 로그인합니다.</li><li>엑셀이나 파워포인트를 엽니다.</li><li><b>홈 → 추가 기능</b>에서 <b>Claude</b>를 눌러 켭니다. (맥은 <b>도구 → 추가 기능</b>)</li><li>오른쪽에 열린 창에서 <b>클로드 계정</b>으로 로그인합니다.</li></ol><p class="tip">한 번 설치하면 엑셀과 파워포인트에 함께 들어옵니다. 다음부터는 <b>홈</b> 탭의 Claude 단추만 누르면 됩니다.</p><p>마켓플레이스 페이지를 찾기 어려우면, 엑셀의 <b>홈 → 추가 기능 → 추가 기능 더 보기</b>에서 <b>Claude</b>를 검색해도 됩니다.</p></div><h2><span class="n">3</span>엑셀에서 쓰기</h2><div class="card"><p>파일을 연 채로 오른쪽 창에 말하면, 클로드가 그 통합 문서를 읽고 고칩니다. 답에 적힌 셀 주소를 누르면 그 셀로 이동합니다.</p><table><tr><th>하고 싶은 일</th><th>이렇게 말해요</th></tr><tr><td>구조 파악</td><td>이 통합 문서에 어떤 시트가 있고 서로 어떻게 이어져 있는지 설명해 줘</td></tr><tr><td>계산 과정 확인</td><td>F12 셀의 값이 어떻게 계산된 것인지 차례대로 설명해 줘</td></tr><tr><td>검산</td><td>교과군별 시수 합계가 맞는지 검산하고, 안 맞는 줄을 알려 줘. 고치지는 마</td></tr><tr><td>오류 찾기</td><td>요약 시트의 #REF! 오류가 어디서 생겼는지 찾아 줘</td></tr><tr><td>수식 만들기</td><td>반별 평균과 표준편차를 구하는 수식을 H열과 I열에 넣어 줘</td></tr><tr><td>표 정리</td><td>점수가 60점 미만인 칸에 색을 넣고, 반 열에 드롭다운 목록을 만들어 줘</td></tr><tr><td>차트</td><td>반별 평균을 막대 차트로 만들어 새 시트에 넣어 줘</td></tr></table><div class="say"><span>이 편성표에서 3개 학년의 교과군별 시수 합계를 검산해 줘. 기준 시수와 다른 곳은 셀 주소와 함께 표로 보여 주고, 아직 아무것도 고치지 마.</span></div><p class="tip">정렬, 필터, 피벗 테이블 고치기, 조건부 서식, 드롭다운 만들기는 됩니다. <b>매크로(VBA)와 데이터 표 기능</b>은 다루지 못합니다.</p></div><h2><span class="n">4</span>파워포인트에서 쓰기</h2><div class="card"><p><b>내 서식을 먼저 입혀 두고</b> 시킵니다. 클로드가 슬라이드 마스터의 배치·글꼴·색을 읽어 그 틀에 맞춰 만듭니다.</p><table><tr><th>하고 싶은 일</th><th>이렇게 말해요</th></tr><tr><td>초안 만들기</td><td>학부모 설명회 자료를 10쪽으로 만들어 줘. 일정, 평가 방법, 준비물, 문의처 순서로</td></tr><tr><td>한 쪽만 고치기</td><td>3쪽 글이 너무 많아. 한 줄 글머리표 네 개로 줄여 줘</td></tr><tr><td>도해로 바꾸기</td><td>이 쪽의 글머리표를 순서도로 바꿔 줘</td></tr><tr><td>차트 넣기</td><td>이 표로 막대 차트를 만들어 줘. 나중에 내가 고칠 수 있는 차트로</td></tr><tr><td>순서 다듬기</td><td>4~7쪽의 흐름을 결론부터 말하는 순서로 바꿔 줘</td></tr><tr><td>차례 만들기</td><td>지금 구성에 맞는 차례 쪽을 맨 앞에 넣어 줘</td></tr></table><div class="say"><span>이 서식 그대로, 1학기 수행평가 안내를 6쪽으로 만들어 줘. 쪽마다 제목 한 줄과 글머리표 세 개 이내로 하고, 날짜와 배점은 내가 채울 수 있게 빈칸으로 둬.</span></div><p class="tip">전체를 다시 만들게 하지 말고 <b>“○쪽만”</b>이라고 짚어 줍니다. 손으로 다듬은 다른 쪽이 그대로 남습니다.</p></div><h2><span class="n">5</span>엑셀과 파워포인트를 함께 쓰기</h2><div class="card"><p>두 프로그램의 클로드는 대화를 함께 씁니다. 엑셀과 파워포인트를 둘 다 열어 두면 엑셀의 표를 발표 자료로 옮기는 일을 한 번에 시킬 수 있습니다.</p><div class="say"><span>엑셀에 열려 있는 설문 결과 시트로, 파워포인트에 문항별 결과 차트 슬라이드를 한 쪽씩 만들어 줘.</span></div></div><h2><span class="n">6</span>늘 지킬 규칙 적어 두기</h2><div class="card"><p>오른쪽 창의 <b>Settings → Instructions</b>에 적어 두면 대화마다 다시 말하지 않아도 됩니다. 엑셀과 파워포인트는 따로 적습니다.</p><table><tr><th>프로그램</th><th>적어 둘 만한 것</th></tr><tr><td>엑셀</td><td>숫자에는 천 단위 쉼표를 넣는다. 머리글은 굵게 한다. 고치기 전에 무엇을 고칠지 먼저 말한다</td></tr><tr><td>파워포인트</td><td>글머리표는 한 줄로 쓴다. 한 쪽에 글머리표는 네 개까지. 강조는 서식의 강조색만 쓴다</td></tr></table></div><h2><span class="n">7</span>추가 기능과 클로드 코드, 언제 무엇을 쓰나요</h2><div class="card"><table><tr><th>상황</th><th>알맞은 것</th></tr><tr><td>열어 둔 파일 하나를 보면서 고칠 때</td><td>엑셀·파워포인트 추가 기능</td></tr><tr><td>수식·차트·슬라이드를 프로그램 기능 그대로 만들고 싶을 때</td><td>엑셀·파워포인트 추가 기능</td></tr><tr><td>파일 여러 개를 한꺼번에 처리할 때 (30개 반 명렬표 합치기 등)</td><td>클로드 코드</td></tr><tr><td>한글(hwpx)·PDF·그림과 엮어서 일할 때</td><td>클로드 코드</td></tr><tr><td>오피스가 구독판이 아니라 추가 기능을 못 쓸 때</td><td>클로드 코드 또는 웹용 오피스</td></tr></table><p class="tip">클로드 코드에게 시킬 때는 파일 경로를 주고, 그 파일은 <b>엑셀·파워포인트에서 닫아 둡니다.</b> 추가 기능은 반대로 파일을 <b>열어 둔 채</b> 씁니다.</p></div><div class="warn"><b>쓰기 전에 알아 두세요</b><ul><li><b>사본으로 시작합니다.</b> 넓게 고치게 할 때는 파일을 복사해 두고 사본에서 시킵니다.</li><li><b>결과는 사람이 검토합니다.</b> 합계, 인원, 날짜처럼 틀리면 안 되는 수치는 원자료와 대조합니다.</li><li><b>믿을 수 있는 파일에서만 씁니다.</b> 바깥에서 받은 파일에는 클로드를 속이는 숨은 지시문이 들어 있을 수 있습니다.</li><li><b>확인 창을 읽고 누릅니다.</b> 기존 자료를 덮어쓰기 전에 클로드가 물어봅니다.</li><li><b>학생 개인정보가 든 파일</b>(성적, 연락처, 상담 기록)은 이름을 지우거나 번호로 바꾼 사본으로 씁니다. 파일 내용은 클로드 서버로 보내져 처리됩니다.</li><li><b>사용량은 클로드 계정과 함께 셉니다.</b> 큰 파일을 오래 다루면 한도에 빨리 닿습니다.</li></ul></div><h2><span class="n">?</span>막혔을 때</h2><details><summary>홈 탭에 추가 기능 단추나 Claude가 안 보여요</summary><p>오피스가 구독판이 아니거나 오래된 버전일 수 있습니다. <b>파일 → 계정</b>에서 Microsoft 365인지 보고, <b>업데이트 옵션 → 지금 업데이트</b>를 누릅니다. 그래도 없으면 웹용 오피스에서 씁니다.</p></details><details><summary>“관리자가 차단했습니다”라고 나와요</summary><p>학교·기관의 Microsoft 365 계정은 관리자가 추가 기능 설치를 막아 두는 경우가 많습니다. 개인 Microsoft 365 계정으로 하거나, 관리자에게 <b>Claude for Microsoft 365</b> 배포를 요청합니다.</p></details><details><summary>로그인했는데 쓸 수 없다고 나와요</summary><p>클로드 계정이 무료 요금제인 경우입니다. 추가 기능은 Pro 이상에서 쓸 수 있습니다.</p></details><details><summary>지난 대화가 다른 PC에서 안 보여요</summary><p>대화 기록은 그 PC에만 저장됩니다. 이어서 할 내용은 파일 안에 메모 시트나 메모 쪽으로 남겨 둡니다.</p></details><details><summary>한글(hwp)에서도 쓸 수 있나요</summary><p>한글용 추가 기능은 없습니다. 한글 문서는 hwpx로 바꿔 클로드 코드나 데스크탑앱에서 다룹니다. (소스 가져오기 참고)</p></details><h2><span class="n">✓</span>점검표</h2><ul class="ck"><li><label><input type="checkbox"><span>내 오피스가 Microsoft 365 구독판인지(또는 웹용을 쓸지) 확인했다</span></label></li><li><label><input type="checkbox"><span>Claude for Microsoft 365를 설치하고 로그인했다</span></label></li><li><label><input type="checkbox"><span>엑셀에서 시트 구조를 설명하게 해 봤다</span></label></li><li><label><input type="checkbox"><span>파워포인트에서 한 쪽만 고치게 해 봤다</span></label></li><li><label><input type="checkbox"><span>Instructions에 규칙을 적었다</span></label></li><li><label><input type="checkbox"><span>사본에서 작업하고 결과를 검토했다</span></label></li></ul>
+<footer>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+document.querySelectorAll('.cmd').forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent='복사';
+  b.onclick=function(){var t=c.querySelector('code').innerText;var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(c.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,sel);}else sel();};c.appendChild(b);});
+</script>
+</body>
+</html>
