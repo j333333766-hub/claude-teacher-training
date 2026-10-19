@@ -49,7 +49,20 @@ footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
 <body>
 <div class="wrap">
 <header><div class="k">연수 안내 · 첫 화면</div><h1>클로드를 활용한 교사 업무 혁명</h1><p>강의 순서대로 안내 페이지를 모았습니다. 연수 중에는 이 화면을 열어 두고, 필요한 페이지를 눌러 따라 하세요.</p></header>
-<div class="sum"><div><b>일시</b>2026. 10. 19.(월) 17:30~19:30</div><div><b>장소</b>제물포AI융합교육센터(상상플랫폼)</div><div><b>강사</b>구월중학교 교사 조창현</div></div><div class="card" style="border-color:#f7b125;background:#fff6e2"><p style="margin:0"><b>연수를 마쳤습니다. 함께해 주셔서 고맙습니다.</b> 연수 앱에서 한 퀴즈·실습 여섯 가지·시연 영상·나눈 스킬은 <a href="practice.html"><b>연수 실습 다시 보기</b></a>에 모두 옮겨 두었습니다. 복사 단추를 눌러 언제든 다시 해 볼 수 있습니다.</p></div>
+<div class="sum"><div><b>일시</b>2026. 10. 19.(월) 17:30~19:30</div><div><b>장소</b>제물포AI융합교육센터(상상플랫폼)</div><div><b>강사</b>구월중학교 교사 조창현</div></div><style>
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0 6px}
+.big a{display:flex;align-items:center;gap:14px;background:#2a1a00;color:#fff;border-radius:18px;padding:20px 20px;text-decoration:none;border:3px solid #f7b125;box-shadow:0 4px 0 #f7b125;transition:transform .12s}
+.big a:hover{transform:translateY(-3px)}
+.big a.alt{background:#f7b125;color:#2a1a00;border-color:#2a1a00;box-shadow:0 4px 0 #2a1a00}
+.big .ic{font-size:36px;line-height:1;flex:none}
+.big b{display:block;font-size:22px;line-height:1.3}
+.big span{display:block;font-size:14.5px;opacity:.85;margin-top:3px}
+.bigmsg{margin:12px 0 0;font-weight:800;font-size:16px}
+</style><p class="bigmsg">연수를 마쳤습니다. 함께해 주셔서 고맙습니다. 아래 단추로 연수 내용을 다시 볼 수 있습니다.</p>
+<div class="big">
+<a href="practice.html"><span class="ic">▶</span><span><b>연수 실습 다시 보기</b><span>퀴즈·실습 1~6·시연 영상·스킬 내려받기</span></span></a>
+<a class="alt" href="commands.html"><span class="ic">⌨</span><span><b>클로드 코드 실행 명령</b><span>파워셸에 붙여 넣는 명령 106개, 눌러서 복사</span></span></a>
+</div>
 <style>
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:10px 0 4px}
 .go{display:block;background:#fff;border:1px solid #f0dfbd;border-radius:14px;padding:12px 14px;text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s}
