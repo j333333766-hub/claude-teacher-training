@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>연수 실습 다시 보기</title>
+<base target="_blank">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:#2a1a00;background:#fffaf0;line-height:1.6;font-size:16px;word-break:keep-all}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+header{background:#2a1a00;color:#fff;border-radius:18px;padding:22px 22px 20px;border-left:10px solid #f7b125}
+header .k{color:#f7b125;font-weight:800;font-size:14px}
+header h1{margin:4px 0 8px;font-size:28px;line-height:1.3}
+header p{margin:0;color:#f3e6cc;font-size:15.5px}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.nav a{background:#fff1d6;color:#2a1a00;border-radius:99px;padding:5px 13px;font-size:14px;font-weight:800;text-decoration:none}
+.nav a:hover{background:#f7b125}
+h2{font-size:21px;margin:34px 0 6px;display:flex;align-items:center;gap:10px;scroll-margin-top:50px}
+h2 .n{flex:none;min-width:34px;height:34px;padding:0 9px;border-radius:99px;background:#f7b125;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}
+h3{font-size:17px;margin:20px 0 4px}h3 small,.small{font-size:13.5px;color:#6b5320;font-weight:600}
+.lead{margin:0 0 8px;font-size:15px;color:#4b3a15}
+.item{background:#fff;border:1.5px solid #ead9b5;border-radius:14px;padding:10px 12px;margin:8px 0}
+.item .t{font-weight:800;font-size:15.5px}
+.opts{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.opts span{background:#fff1d6;border-radius:99px;padding:2px 12px;font-size:14px;font-weight:700}
+details{background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:6px 12px;margin:8px 0}
+details summary{cursor:pointer;font-weight:800;font-size:14.5px}
+details[open] .opts span.ok{background:#3ccf8e}
+.item details{border:0;padding:0;margin:4px 0 0}
+.steps{padding-left:1.3em;margin:6px 0}.steps li{margin:6px 0}
+.pbox{position:relative;margin:7px 0 0;border-radius:11px;border:1.5px solid #2a1a00;background:#2a1a00}
+.pbox pre{margin:0;color:#ffe9b8;padding:10px 12px 10px;font-family:Consolas,"D2Coding",monospace;font-size:14px;white-space:pre-wrap;word-break:break-all;max-height:260px;overflow:auto}
+.cp{display:block;width:100%;border:0;background:#f7b125;color:#2a1a00;font:inherit;font-weight:800;font-size:13.5px;padding:6px 14px;cursor:pointer;border-radius:0 0 9px 9px}
+.cp.ok{background:#3ccf8e}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.btn{display:inline-block;background:#2a1a00;color:#ffe9b8;border-radius:10px;padding:8px 14px;font-weight:800;font-size:14.5px;text-decoration:none}
+.btn.ghost{background:#fff1d6;color:#2a1a00}
+table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;overflow:hidden;font-size:14.5px;margin:6px 0}
+th,td{border-bottom:1px solid #f0dfbd;padding:7px 10px;text-align:left;vertical-align:top}th{background:#fff1d6}
+td .d{font-size:13px;color:#6b5320;margin-top:3px}
+.tag{font-size:11.5px;font-weight:800;border-radius:99px;padding:1px 9px;background:#fff1d6;color:#8a6a2a;white-space:nowrap}.tag.r{background:#d23a3a;color:#fff}
+code{background:#fff1d6;border-radius:6px;padding:1px 6px;font-family:Consolas,monospace;font-size:.92em}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+figure{margin:0}.vbox{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figcaption{font-size:13.5px;font-weight:700;margin-top:4px}
+.dls{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.dl{display:block;background:#fff;border:1.5px solid #ead9b5;border-radius:12px;padding:9px 12px;text-decoration:none;color:inherit}
+.dl b{display:block}.dl span{display:block;font-size:13.5px;color:#5b4a25}.dl code{font-size:12px}
+.ck{list-style:none;padding:0}.ck li{margin:6px 0}.ck label{display:flex;gap:8px;font-weight:700}
+.ck input{width:19px;height:19px;accent-color:#2a1a00}
+a{color:#a8492b}
+footer{margin-top:28px;font-size:13px;color:#8a6a2a;text-align:center}
+@media(max-width:600px){header h1{font-size:23px}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:50;background:#2a1c05;padding:8px 16px;font:600 14px/1.4 'Pretendard','Malgun Gothic',sans-serif"><a href="./" target="_self" style="color:#f5b82e;text-decoration:none">← 연수 첫 화면</a></div>
+<div class="wrap">
+<header><div class="k">연수 실습 다시 보기</div><h1>연수 실습 다시 보기</h1><p>2026. 10. 19. 연수에서 연수 앱(han.gl/클로드인천)으로 함께 한 퀴즈와 실습 여섯 가지, 시연 영상, 나눈 스킬을 모두 모았습니다. 복사 단추를 눌러 클로드에 붙여 넣으면 그대로 다시 해 볼 수 있습니다.</p></header>
+<div class="nav"><a href="#quiz" target="_self">퀴즈</a><a href="#src" target="_self">실습 1 소스</a><a href="#skill" target="_self">실습 2 스킬</a><a href="#demo" target="_self">영상·스킬 나눔</a><a href="#proj" target="_self">실습 3 프로젝트</a><a href="#art" target="_self">실습 4 아티팩트</a><a href="#voice" target="_self">실습 5 음성</a><a href="#conn" target="_self">실습 6 커넥터</a><a href="#exit" target="_self">해 볼 일</a></div>
+<h2 id="quiz"><span class="n">1부</span>왜 클로드인가 · 확인 퀴즈</h2>
+<p class="lead">1부 강의를 정리하는 7문항입니다. 답을 고른 뒤 ‘정답과 풀이’를 펼쳐 보세요.</p><div class="item"><div class="t">1. 목표만 말하면 스스로 계획을 세우고, 파일·웹·앱을 직접 다뤄 완성된 파일을 돌려주는 AI는?</div>
+<div class="opts"><span class="">챗봇형 AI</span><span class="ok">에이전트형 AI</span></div>
+<details><summary>정답과 풀이</summary><p><b>에이전트형 AI</b> — 챗봇형은 답을 글로 쓰고 복사·정리는 내 몫이에요. 에이전트형은 일을 맡아 끝까지 해 냅니다.</p></details></div>
+<div class="item"><div class="t">2. 웹앱(claude.ai)에서도 내 PC 폴더를 연결해 결과 파일을 그 폴더에 바로 저장할 수 있다.</div>
+<div class="opts"><span class="">O</span><span class="ok">X</span></div>
+<details><summary>정답과 풀이</summary><p><b>X</b> — 폴더 연결과 내 PC 앱 조작은 데스크탑앱에서 됩니다. 웹앱은 파일을 하나씩 올려야 해요.</p></details></div>
+<div class="item"><div class="t">3. 내 PC의 파워셸(터미널)에서 파일을 읽고 고치고 프로그램까지 실행하는 클로드는?</div>
+<div class="opts"><span class="">코워크</span><span class="ok">클로드 코드</span><span class="">디스패치</span><span class="">시크릿 모드</span></div>
+<details><summary>정답과 풀이</summary><p><b>클로드 코드</b> — 클로드 코드는 터미널에서 일하는 에이전트예요. 앱 만들기·배포까지 합니다(Pro 이상).</p></details></div>
+<div class="item"><div class="t">4. 업무분장표·학사일정·지침을 한곳에 모아 둔 “업무별 작업 공간”은?</div>
+<div class="opts"><span class="">스킬</span><span class="">커넥터</span><span class="ok">프로젝트</span><span class="">메모리</span></div>
+<details><summary>정답과 풀이</summary><p><b>프로젝트</b> — 프로젝트는 자료가 꽂힌 책장, 스킬은 일하는 순서를 적은 업무 매뉴얼이에요.</p></details></div>
+<div class="item"><div class="t">5. 스킬은 이름을 부르지 않아도, 설명(description)에 적힌 상황이 오면 클로드가 알아서 꺼내 쓴다.</div>
+<div class="opts"><span class="ok">O</span><span class="">X</span></div>
+<details><summary>정답과 풀이</summary><p><b>O</b> — 그래서 스킬이 잘 안 불려 나오면 거의 언제나 description을 고치면 됩니다.</p></details></div>
+<div class="item"><div class="t">6. 학생 상담 메모를 정리할 때, 대화 목록과 메모리에 남지 않게 하려면?</div>
+<div class="opts"><span class="">프로젝트</span><span class="ok">시크릿 모드</span><span class="">스킬</span><span class="">구글 드라이브 연결</span></div>
+<details><summary>정답과 풀이</summary><p><b>시크릿 모드</b> — 시크릿 모드도 실명·연락처는 넣지 않고 ‘학생A’처럼 가명으로 바꾸는 습관이 먼저예요.</p></details></div>
+<div class="item"><div class="t">7. AI가 채점한 결과는 근거가 그럴듯하면 그대로 확정해도 된다.</div>
+<div class="opts"><span class="">O</span><span class="ok">X</span></div>
+<details><summary>정답과 풀이</summary><p><b>X</b> — 그럴듯한 오답이 가장 위험합니다. 판단과 결재, 평가 확정은 교사가 합니다.</p></details></div>
+
+<h2 id="src"><span class="n">실습 1</span>클로드에 넣기 전에, 자료부터 정리하기</h2>
+<p class="lead">클로드는 hwp를 읽지 못합니다. 공문·자료를 <b>hwpx</b>나 <b>pdf</b>로 바꿔 두면 프로젝트·스킬에 바로 넣을 수 있습니다. 한 폴더를 통째로 한 번에 바꿔 봅니다.</p>
+<div class="btns"><a class="btn" href="files/ai-source-converter.zip" download>⬇ AI소스변환기 받기</a><a class="btn ghost" href="https://1drv.ms/u/c/01072fe9e208f4e7/IQBnVNZKc_vUTYHko1vpDPusAevwAsxHsUM9Qtue6_0JSjo?e=88Qcn8">⬇ 실습용 공문 묶음 (원드라이브)</a></div>
+<p class="small">원드라이브 · 224MB · 공문 89건(본문 pdf + 첨부 hwp·hwpx·xlsx 등) — 원드라이브 화면의 [다운로드]를 누르세요. 내 공문 폴더로 해도 됩니다.</p>
+<ol class="steps"><li>받은 zip을 <b>오른쪽 클릭 → 속성 → 「차단 해제」</b> 체크 → 확인 → 압축 풀기.</li><li><b>AI소스변환기.hta</b>를 두 번 누릅니다. (한글 2020 이상이 깔린 윈도우 PC)</li><li><b>hwp → hwpx</b> 탭: 공문 폴더를 고르고 [변환]. 하위 폴더까지 한 번에 바뀝니다.</li><li><b>pdf</b> 탭: hwp·hwpx·xlsx·pptx 를 골라 [변환]. 엑셀·파워포인트도 같은 폴더에 pdf가 생깁니다.</li><li>바뀐 파일 하나를 클로드 대화창에 끌어다 놓고 "이 공문 세 줄로 요약해 줘"라고 해 봅니다.</li></ol>
+<details><summary>잘 안 될 때</summary><ul><li>「이 파일을 열 수 없음」·보안 경고: zip 속성에서 차단 해제를 했는지 확인하세요.</li><li>한글 「접근 허용」 창이 뜨면 [모두 허용]을 누르세요.</li><li>암호 걸린 문서, 확장자만 바뀐 파일은 실패로 남는 것이 정상입니다.</li><li>워드(docx) 변환은 PowerShell 7이 있어야 빠릅니다. 없으면 건너뛰어도 됩니다.</li><li>맥·크롬북은 HTA가 돌지 않습니다.</li></ul></details>
+<p>자세한 설명: <a href="sources.html">소스 가져오기</a></p>
+
+<h2 id="skill"><span class="n">실습 2</span>공문 담당자 찾기 — 스킬 없이 / 스킬 켜고</h2>
+<p class="lead">가상의 <b>새싹중학교</b> 업무분장표(24명)로, 같은 공문 10건을 스킬 없이 한 번, 스킬을 켜고 한 번 물어 결과를 견줍니다.</p>
+<div class="btns"><a class="btn" href="files/gongmun-damdang-annae.zip" download>⬇ 스킬 ZIP (gongmun-damdang-annae.zip)</a><a class="btn ghost" href="files/duty-table.md">업무분장표.md 보기</a><a class="btn ghost" href="files/SKILL.md">SKILL.md 보기</a></div>
+<h3>① 스킬 없이</h3>
+<ol class="steps"><li>클로드 <b>새 대화</b>를 엽니다. 스킬은 아직 올리지 않습니다.</li><li>아래 글(업무분장표 + 공문 10건)을 복사해 붙여 넣고 보냅니다.<div class="pbox"><pre>아래는 우리 학교 업무분장표야.
+
+# 2026학년도 새싹중학교 업무분장표
+
+&gt; 연수 실습용 가상 자료입니다. 학교와 사람 이름은 모두 지어낸 것입니다.
+
+## 교무기획부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 김도윤 | 부장 | 교무 업무 총괄, 학사일정 수립·조정, 교원 복무, 각종 위원회(인사자문위원회) 운영, 교육계획서 |
+| 이서연 | 교사 | 출결 관리·출석인정 처리, 나이스 학적, 전입·전출, 학교생활기록부 점검 |
+| 박지훈 | 교사 | 수업시간표 편성·보결, 시간강사·기간제교원 채용, 교과서 선정·주문 |
+| 최하은 | 교사 | 정기고사 운영, 학업성적관리위원회, 평가계획 취합, 성적 처리 |
+
+## 교육과정부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 정민준 | 부장 | 교육과정 편성·운영 총괄, 학교자율시간, 교육과정 평가 |
+| 강수아 | 교사 | 자유학기 운영(주제선택·진로탐색 활동), 자유학기 운영 보고 |
+| 윤시우 | 교사 | 방과후학교 운영, 방과후 강사 채용, 수강료 관리 |
+
+## 연구정보부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 한지민 | 부장 | 교원능력개발평가, 교원 연수 총괄, 전문적학습공동체, 수업 공개 |
+| 오준서 | 교사 | 정보 기자재·태블릿 관리, 디지털 교과서·AI 교육, 개인정보 보호, 정보공시 |
+| 신예린 | 교사 | 학교 누리집 관리, 학교 신문·소식지, 교육 홍보 |
+
+## 학생생활안전부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 조현우 | 부장 | 학생생활 지도 총괄, 학교폭력 사안 처리, 학교폭력대책심의위원회 연계, 선도위원회 |
+| 임채원 | 교사 | 학교폭력 예방교육, 어울림 프로그램, 학생 인권·생활 규정, 흡연 예방교육 |
+| 장유진 | 교사 | 학교 안전교육(7대 안전교육), 재난 대피훈련, 학생자치회, 등굣길 지도 |
+
+## 진로상담부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 서동현 | 부장 | 진로교육 총괄, 진로체험(직업체험) 운영, 고입 진학 지도 |
+| 문하린 | 전문상담교사 | Wee클래스 운영, 학생 정서·행동특성검사, 자살 예방교육, 위기학생 상담 |
+
+## 인성체육부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 백승민 | 부장 | 학교스포츠클럽 운영·대회 참가, 체육 행사(체육대회), 학생건강체력평가(PAPS) |
+| 노은서 | 교사 | 인성교육, 봉사활동, 독서교육·도서관 운영, 현장체험학습(수학여행) |
+
+## 보건·급식
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 홍나래 | 보건교사 | 보건교육, 학생 건강검사, 감염병 예방, 성교육, 약물 오남용 예방교육 |
+| 송다은 | 영양교사 | 학교급식 운영, 급식 위생 점검, 식재료 검수, 식생활 교육, 급식소위원회 |
+
+## 행정실
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 유태호 | 행정실장 | 행정 업무 총괄, 학교 예산·결산, 학교운영위원회 운영 |
+| 권미소 | 주무관 | 시설 관리·공사, 물품 구매, 교육비 지원(교육급여), 통학 차량 |
+
+## 학년부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 남궁준 | 1학년부장 | 1학년 생활·학급 운영, 신입생 적응 교육 |
+| 황보람 | 2학년부장 | 2학년 생활·학급 운영 |
+| 제갈윤 | 3학년부장 | 3학년 생활·학급 운영, 졸업식, 졸업앨범 |
+
+오늘 온 공문이야. 담당자 좀 찾아 줘.
+- 2026학년도 학교폭력 예방교육 실적 제출
+- 2026학년도 교원능력개발평가 시행 계획 안내
+- 하반기 학교급식 위생 점검 결과 제출
+- 2026학년도 2학기 자유학기 운영 보고서 제출
+- 2026년 학생 정서·행동특성검사 2차 실시 안내
+- 2027학년도 교과용도서 선정 및 주문 안내
+- 학교스포츠클럽 교육감배 대회 참가 신청
+- 2학기 현장체험학습 안전요원 지원 신청
+- 학생 개인정보 처리 실태 점검
+- 2026년 다문화 학생 한국어 학급 운영 신청</pre><button type="button" class="cp" data-p="p1">업무분장표 + 공문 10건 복사</button></div></li><li>클로드가 답한 담당자를 아래 정답과 견줍니다.</li></ol>
+<h3>② 스킬 켜고</h3>
+<ol class="steps"><li>스킬 ZIP을 내려받아 클로드 <b>사용자 지정 → 스킬 → + → 스킬 업로드</b>로 올립니다. 처음이면 먼저 설정 → 기능에서 「코드 실행 및 파일 생성」을 켭니다.</li><li><b>새 대화</b>를 열고, 이번에는 <b>공문 목록만</b> 붙여 넣습니다. 업무분장표는 스킬 안에 들어 있습니다.<div class="pbox"><pre>오늘 온 공문이야. 담당자 좀 찾아 줘.
+- 2026학년도 학교폭력 예방교육 실적 제출
+- 2026학년도 교원능력개발평가 시행 계획 안내
+- 하반기 학교급식 위생 점검 결과 제출
+- 2026학년도 2학기 자유학기 운영 보고서 제출
+- 2026년 학생 정서·행동특성검사 2차 실시 안내
+- 2027학년도 교과용도서 선정 및 주문 안내
+- 학교스포츠클럽 교육감배 대회 참가 신청
+- 2학기 현장체험학습 안전요원 지원 신청
+- 학생 개인정보 처리 실태 점검
+- 2026년 다문화 학생 한국어 학급 운영 신청</pre><button type="button" class="cp" data-p="p2">공문 10건만 복사</button></div></li><li>답 위에 스킬을 읽었다는 표시가 나오는지 보고, 담당자를 다시 견줍니다.</li></ol>
+<details><summary>스킬 업로드가 안 될 때</summary><p class="small">스킬 내용과 업무분장표, 공문을 한 번에 붙여 넣어 같은 효과를 봅니다.</p><div class="pbox"><pre>아래 지침대로 일해 줘.
+
+---
+name: gongmun-damdang-annae
+description: 공문 제목이나 내용을 주면 학교 업무분장표에서 담당 부서와 담당자를 찾아 근거와 함께 안내한다. &quot;이 공문 누가 담당이야&quot;, &quot;담당자 찾아 줘&quot;, 공문 제목만 붙여 넣었을 때 사용한다.
+---
+
+# 공문 담당자 안내
+
+공문 제목(또는 본문)을 받으면 아래 순서로 담당자를 안내한다.
+
+## 순서
+
+1. 공문 제목에서 핵심 낱말을 뽑는다. (예: 학교폭력, 예방교육, 실적 제출)
+2. 같은 폴더의 `업무분장표.md`에서 그 낱말과 맞는 업무를 찾는다.
+3. 맞는 업무가 하나면 그 담당자를 안내한다.
+4. 맞는 업무가 둘 이상이면 모두 보여 주고, 어느 쪽이 더 가까운지 까닭을 말한다.
+5. 맞는 업무가 없으면 &quot;업무분장표에 없음&quot;이라고 말하고, 가장 가까운 부서 두 곳을 후보로 든다. 지어내지 않는다.
+
+## 답하는 모양
+
+| 공문 | 담당 부서 | 담당자 | 근거 (업무분장표 항목) |
+|---|---|---|---|
+
+표 아래에 한 줄로 판단 까닭을 적는다.
+
+## 지킬 것
+
+- 담당자 이름은 업무분장표에 적힌 그대로 쓴다.
+- 확실하지 않으면 &quot;교무부장 확인 필요&quot;라고 덧붙인다.
+- 공문 여러 건을 한꺼번에 주면 한 표에 모아 정리한다.
+
+(업무분장표.md)
+# 2026학년도 새싹중학교 업무분장표
+
+&gt; 연수 실습용 가상 자료입니다. 학교와 사람 이름은 모두 지어낸 것입니다.
+
+## 교무기획부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 김도윤 | 부장 | 교무 업무 총괄, 학사일정 수립·조정, 교원 복무, 각종 위원회(인사자문위원회) 운영, 교육계획서 |
+| 이서연 | 교사 | 출결 관리·출석인정 처리, 나이스 학적, 전입·전출, 학교생활기록부 점검 |
+| 박지훈 | 교사 | 수업시간표 편성·보결, 시간강사·기간제교원 채용, 교과서 선정·주문 |
+| 최하은 | 교사 | 정기고사 운영, 학업성적관리위원회, 평가계획 취합, 성적 처리 |
+
+## 교육과정부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 정민준 | 부장 | 교육과정 편성·운영 총괄, 학교자율시간, 교육과정 평가 |
+| 강수아 | 교사 | 자유학기 운영(주제선택·진로탐색 활동), 자유학기 운영 보고 |
+| 윤시우 | 교사 | 방과후학교 운영, 방과후 강사 채용, 수강료 관리 |
+
+## 연구정보부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 한지민 | 부장 | 교원능력개발평가, 교원 연수 총괄, 전문적학습공동체, 수업 공개 |
+| 오준서 | 교사 | 정보 기자재·태블릿 관리, 디지털 교과서·AI 교육, 개인정보 보호, 정보공시 |
+| 신예린 | 교사 | 학교 누리집 관리, 학교 신문·소식지, 교육 홍보 |
+
+## 학생생활안전부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 조현우 | 부장 | 학생생활 지도 총괄, 학교폭력 사안 처리, 학교폭력대책심의위원회 연계, 선도위원회 |
+| 임채원 | 교사 | 학교폭력 예방교육, 어울림 프로그램, 학생 인권·생활 규정, 흡연 예방교육 |
+| 장유진 | 교사 | 학교 안전교육(7대 안전교육), 재난 대피훈련, 학생자치회, 등굣길 지도 |
+
+## 진로상담부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 서동현 | 부장 | 진로교육 총괄, 진로체험(직업체험) 운영, 고입 진학 지도 |
+| 문하린 | 전문상담교사 | Wee클래스 운영, 학생 정서·행동특성검사, 자살 예방교육, 위기학생 상담 |
+
+## 인성체육부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 백승민 | 부장 | 학교스포츠클럽 운영·대회 참가, 체육 행사(체육대회), 학생건강체력평가(PAPS) |
+| 노은서 | 교사 | 인성교육, 봉사활동, 독서교육·도서관 운영, 현장체험학습(수학여행) |
+
+## 보건·급식
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 홍나래 | 보건교사 | 보건교육, 학생 건강검사, 감염병 예방, 성교육, 약물 오남용 예방교육 |
+| 송다은 | 영양교사 | 학교급식 운영, 급식 위생 점검, 식재료 검수, 식생활 교육, 급식소위원회 |
+
+## 행정실
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 유태호 | 행정실장 | 행정 업무 총괄, 학교 예산·결산, 학교운영위원회 운영 |
+| 권미소 | 주무관 | 시설 관리·공사, 물품 구매, 교육비 지원(교육급여), 통학 차량 |
+
+## 학년부
+
+| 이름 | 직위 | 담당 업무 |
+|---|---|---|
+| 남궁준 | 1학년부장 | 1학년 생활·학급 운영, 신입생 적응 교육 |
+| 황보람 | 2학년부장 | 2학년 생활·학급 운영 |
+| 제갈윤 | 3학년부장 | 3학년 생활·학급 운영, 졸업식, 졸업앨범 |
+
+오늘 온 공문이야. 담당자 좀 찾아 줘.
+- 2026학년도 학교폭력 예방교육 실적 제출
+- 2026학년도 교원능력개발평가 시행 계획 안내
+- 하반기 학교급식 위생 점검 결과 제출
+- 2026학년도 2학기 자유학기 운영 보고서 제출
+- 2026년 학생 정서·행동특성검사 2차 실시 안내
+- 2027학년도 교과용도서 선정 및 주문 안내
+- 학교스포츠클럽 교육감배 대회 참가 신청
+- 2학기 현장체험학습 안전요원 지원 신청
+- 학생 개인정보 처리 실태 점검
+- 2026년 다문화 학생 한국어 학급 운영 신청</pre><button type="button" class="cp" data-p="p3">지침 + 업무분장표 + 공문 복사</button></div></details>
+<h3>정답 <small>함정 문항 4건 포함</small></h3><table><tr><th>#</th><th>공문</th><th>정답</th></tr><tr><td>1</td><td>2026학년도 학교폭력 예방교육 실적 제출</td><td>임채원 (학교폭력 예방교육)</td></tr><tr><td>2</td><td>2026학년도 교원능력개발평가 시행 계획 안내</td><td>한지민 (연구정보부장)</td></tr><tr><td>3</td><td>하반기 학교급식 위생 점검 결과 제출</td><td>송다은 (영양교사)</td></tr><tr><td>4</td><td>2026학년도 2학기 자유학기 운영 보고서 제출</td><td>강수아 (자유학기 운영)</td></tr><tr><td>5</td><td>2026년 학생 정서·행동특성검사 2차 실시 안내 <span class="tag r">보건교사로 헷갈리기 쉬움</span><div class="d">‘검사’라서 보건 업무처럼 보이지만, 「학생 정서·행동특성검사」는 전문상담교사 문하린 선생님 칸에 그대로 적혀 있어요. 짐작보다 업무분장표가 기준이에요.</div><div class="d">SKILL.md: <code>2. 같은 폴더의 `업무분장표.md`에서 그 낱말과 맞는 업무를 찾는다.</code></div></td><td>문하린 (전문상담교사)</td></tr><tr><td>6</td><td>2027학년도 교과용도서 선정 및 주문 안내</td><td>박지훈 (교과서 선정·주문)</td></tr><tr><td>7</td><td>학교스포츠클럽 교육감배 대회 참가 신청</td><td>백승민 (학교스포츠클럽)</td></tr><tr><td>8</td><td>2학기 현장체험학습 안전요원 지원 신청 <span class="tag r">두 부서에 걸침</span><div class="d">노은서(현장체험학습)도 맞지만, ‘안전요원’은 장유진(안전교육) 업무에도 걸려요. 두 부서에 걸치는 공문은 둘 다 보여 주고 어느 쪽이 더 가까운지 말해야 해요.</div><div class="d">SKILL.md: <code>4. 맞는 업무가 둘 이상이면 모두 보여 주고, 어느 쪽이 더 가까운지 까닭을 말한다.</code></div></td><td>두 사람 모두 보여 줌</td></tr><tr><td>9</td><td>학생 개인정보 처리 실태 점검 <span class="tag r">행정실로 헷갈리기 쉬움</span><div class="d">행정실 일처럼 보이지만 「개인정보 보호」는 연구정보부 오준서 선생님 업무예요.</div><div class="d">SKILL.md: <code>2. 같은 폴더의 `업무분장표.md`에서 그 낱말과 맞는 업무를 찾는다.</code></div></td><td>오준서 (개인정보 보호)</td></tr><tr><td>10</td><td>2026년 다문화 학생 한국어 학급 운영 신청 <span class="tag r">분장표에 없는 업무</span><div class="d">업무분장표에 다문화 업무는 없어요. 그럴듯한 이름을 대는 것이 가장 위험한 답이에요.</div><div class="d">SKILL.md: <code>5. 맞는 업무가 없으면 &quot;업무분장표에 없음&quot;이라고 말하고, 가장 가까운 부서 두 곳을 후보로 든다. 지어내지 않는다.</code></div></td><td>“업무분장표에 없음”이라고 함</td></tr></table>
+<p>자세한 설명: <a href="skills.html">스킬 만들기</a></p>
+
+<h2 id="demo"><span class="n">시연</span>실제 업무 영상과 스킬 나눔</h2>
+<p class="lead">방금 실습한 스킬이 실제 업무에서는 이렇게 쓰입니다. 강사가 클로드 코드로 나이스·K-에듀파인 일을 맡긴 실제 화면입니다(개인정보는 모자이크).</p>
+<div class="vids"><figure><div class="vbox"><iframe src="https://www.youtube-nocookie.com/embed/l0e-Kv_NV0A?rel=0&playsinline=1" title="K-에듀파인 업무 자동화 (2분 30초)" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<figcaption>K-에듀파인 업무 자동화 (2분 30초) · <a href="https://youtu.be/l0e-Kv_NV0A">유튜브에서 열기</a> · <a href="video/edufine-auto.mp4">mp4 내려받기</a></figcaption></figure>
+<figure><div class="vbox"><iframe src="https://www.youtube-nocookie.com/embed/Y1XMkP8h_6E?rel=0&playsinline=1" title="홍보 공문 홈페이지 게시 (3분)" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<figcaption>홍보 공문 홈페이지 게시 (3분) · <a href="https://youtu.be/Y1XMkP8h_6E">유튜브에서 열기</a> · <a href="video/hongbo-gesi.mp4">mp4 내려받기</a></figcaption></figure></div>
+<h3>나이스·K-에듀파인 스킬 나눔 <small>개인정보를 지운 사본</small></h3>
+<div class="btns"><a class="btn" href="files/skills/all-skills.zip" download>⬇ 7개 한꺼번에 받기 (all-skills.zip)</a></div>
+<div class="dls"><a class="dl" href="files/skills/neis-system.zip" download><b>나이스 안내서</b><span>메뉴 전체 지도·화면 구성·화면 바로 열기·로그인 유지</span><code>neis-system.zip</code></a><a class="dl" href="files/skills/neis-bokmu-gyeoljae.zip" download><b>나이스 복무 결재</b><span>미결/협조함 복무 결재 점검·승인, 텔레그램 보고</span><code>neis-bokmu-gyeoljae.zip</code></a><a class="dl" href="files/skills/kedufine-system.zip" download><b>K-에듀파인 안내서</b><span>메뉴 180개·화면 94개 구성, 화면 바로 열기, 로그인 유지</span><code>kedufine-system.zip</code></a><a class="dl" href="files/skills/kedufine-hongbo-gesi.zip" download><b>홍보 공문 → 홈페이지 게시</b><span>공지사항 등록 + 공람·결재선·과제카드·문서처리</span><code>kedufine-hongbo-gesi.zip</code></a><a class="dl" href="files/skills/kedufine-gian.zip" download><b>K-에듀파인 기안</b><span>기안 창에 제목·본문·과제카드·첨부 채우기</span><code>kedufine-gian.zip</code></a><a class="dl" href="files/skills/kedufine-gongmun-jeojang.zip" download><b>공문 일괄 저장</b><span>문서등록대장 공문을 기간 단위로 PDF 저장·정리</span><code>kedufine-gongmun-jeojang.zip</code></a><a class="dl" href="files/skills/kedufine-edge-tab.zip" download><b>공문을 엣지 탭으로</b><span>공문이 별도 창 대신 엣지 IE 모드 탭에서 열리게 설정</span><code>kedufine-edge-tab.zip</code></a></div>
+<details><summary>설치·사용법</summary><ol class="steps"><li>이 스킬들은 <b>클로드 코드(Pro 이상)</b>와 엣지 브라우저(Claude in Chrome 확장)에서 씁니다. 윈도우 PC 기준입니다.</li><li>zip을 풀어 나온 폴더(예: <code>neis-system</code>)를 <code>%USERPROFILE%\.claude\skills\</code> 안에 넣습니다.</li><li>파일 속 <code>(내 아이디)</code>, <code>&lt;우리학교&gt;</code>, <code>○○중</code> 같은 자리는 우리 학교·내 값으로 바꿉니다. 클로드에게 "이 스킬을 우리 학교에 맞게 고쳐 줘"라고 해도 됩니다.</li><li>클로드 코드에서 <code>/skills</code>로 보이면 준비 끝. "결재대기 홍보 공문 홈페이지에 올려줘"처럼 말하면 됩니다.</li><li>인증서 로그인·결재·등록 같은 되돌릴 수 없는 일은 스킬도 반드시 사람 확인을 받게 되어 있습니다.</li></ol></details>
+
+<h2 id="proj"><span class="n">실습 3</span>내 교과 프로젝트 만들기</h2>
+<p class="lead">프로젝트는 <b>내 자료를 기억하는 작업방</b>입니다. 교육과정·교과서를 한 번 넣어 두면, 그 안의 새 대화는 매번 설명하지 않아도 우리 교과 기준으로 답합니다.</p>
+<ol class="steps"><li>클로드 왼쪽 메뉴 <b>프로젝트 → + 새 프로젝트</b>. 이름: 「○학년 ○○ 수업 도우미」</li><li><b>프로젝트 지식(파일)</b>에 내 교과 자료를 올립니다. 실습 1에서 pdf·hwpx로 바꾼 파일이 알맞습니다. (교육과정·교과서/지도서·평가계획·활동지·학사일정, 학생 특성 메모는 이름 없이)</li><li><b>프로젝트 지침</b>에 아래 글을 붙여 넣고 ○ 자리를 고칩니다.<div class="pbox"><pre>너는 우리 학교 ○학년 ○○ 교과 수업을 함께 준비하는 동료 교사야.
+- 답할 때는 이 프로젝트에 올린 교육과정·교과서·평가계획을 먼저 보고, 근거(성취기준 코드, 교과서 쪽)를 밝혀 줘.
+- 자료에 없는 내용은 지어내지 말고 &quot;자료에 없음&quot;이라고 말해 줘.
+- 학생 활동은 우리 학교 수업 시간(45분)에 맞춰 짜 줘.</pre><button type="button" class="cp" data-p="p4">지침 복사</button></div></li><li>프로젝트 안에서 새 대화를 열고 물어봅니다. 답에 근거(성취기준·쪽)가 나오는지 봅니다.<div class="pbox"><pre>다음 주에 가르칠 단원의 성취기준과 차시 계획을 표로 정리해 줘.</pre><button type="button" class="cp" data-p="p5">복사</button></div><div class="pbox"><pre>이 단원 수행평가 아이디어 3개와 채점 기준표를 만들어 줘.</pre><button type="button" class="cp" data-p="p6">복사</button></div><div class="pbox"><pre>이 단원에서 학생들이 자주 틀리는 개념과, 그걸 확인할 질문 5개를 알려 줘.</pre><button type="button" class="cp" data-p="p7">복사</button></div></li></ol>
+<details><summary>무료 계정이라면</summary><ul><li>프로젝트 개수와 넣을 수 있는 자료 양에 제한이 있습니다. 교과서 전체보다 <b>이번 단원</b> 쪽만 넣는 게 좋습니다.</li><li>메시지 한도가 빨리 차면 몇 시간 뒤 다시 쓸 수 있습니다. 질문은 한 번에 자세히!</li></ul></details>
+<p>자세한 설명: <a href="projects.html">프로젝트 만들기</a></p>
+
+<h2 id="art"><span class="n">실습 4</span>아티팩트로 교과 콘텐츠 만들기 (바이브코딩)</h2>
+<p class="lead">코드를 몰라도 <b>말로 설명하면 웹페이지가 만들어지는 것</b>이 바이브코딩입니다. 실습 3의 프로젝트 안에서 만들면 내 교과 자료를 반영합니다.</p>
+<ol class="steps"><li>프로젝트 안 새 대화에서 만들고 싶은 것을 말합니다. 아래 예시를 내 교과로 바꿔 써 보세요.</li><li>오른쪽에 나온 결과를 직접 눌러 보고, "버튼을 더 크게", "문제를 우리 교과서 쪽으로 바꿔 줘"처럼 고칩니다.</li><li>다 되면 아티팩트 오른쪽 위 <b>게시(Publish)</b> → 링크 복사. 이 링크는 로그인 없이 학생 누구나 열 수 있습니다.</li></ol>
+<div class="item"><div class="t"><span class="tag">수학</span></div><div class="pbox"><pre>중1 「좌표평면」 개념을 확인하는 퀴즈 웹페이지를 만들어 줘. 10문항, 누르면 바로 정답과 풀이, 마지막에 점수. 휴대폰에서도 보기 좋게.</pre><button type="button" class="cp" data-p="p8">복사</button></div></div><div class="item"><div class="t"><span class="tag">과학</span></div><div class="pbox"><pre>중2 「물질의 상태 변화」를 온도 슬라이더로 움직여 보는 시뮬레이션 웹페이지를 만들어 줘. 입자 모형이 움직이게.</pre><button type="button" class="cp" data-p="p9">복사</button></div></div><div class="item"><div class="t"><span class="tag">국어·영어</span></div><div class="pbox"><pre>이번 단원 낱말 20개로 뜻 맞히기 카드 게임 웹페이지를 만들어 줘. 뒤집기 카드, 맞힌 개수 표시.</pre><button type="button" class="cp" data-p="p10">복사</button></div></div><div class="item"><div class="t"><span class="tag">사회·역사</span></div><div class="pbox"><pre>조선 시대 주요 사건 8개를 시간 순서대로 끌어다 놓는 연표 맞추기 활동 웹페이지를 만들어 줘.</pre><button type="button" class="cp" data-p="p11">복사</button></div></div><div class="item"><div class="t"><span class="tag">공통</span></div><div class="pbox"><pre>모둠 6개를 무작위로 짜 주고 발표 순서를 룰렛으로 뽑는 수업 도구 웹페이지를 만들어 줘.</pre><button type="button" class="cp" data-p="p12">복사</button></div></div>
+<details><summary>잘 안 될 때</summary><ul><li>오른쪽에 결과가 안 나오면 설정 → 기능에서 「아티팩트」를 켜세요.</li><li>게시 링크는 「누구나 볼 수 있음」입니다. 학생 이름·성적 같은 개인정보는 넣지 마세요.</li><li>무료 계정은 긴 코드를 여러 번 고치면 한도가 빨리 찹니다. 처음 요청을 자세히 쓰세요.</li></ul></details>
+
+<h2 id="voice"><span class="n">실습 5</span>휴대폰 음성대화로 수업 설계하기</h2>
+<p class="lead">출퇴근길·쉬는 시간에 <b>말로</b> 수업을 구상하고, 정리는 클로드에게 맡깁니다. 실습 3의 프로젝트 안에서 하면 교과 자료를 보며 대답합니다.</p>
+<ol class="steps"><li>휴대폰에 <b>클로드 앱</b>을 깔고 같은 계정으로 로그인합니다.</li><li>왼쪽 메뉴 → <b>프로젝트</b> → 실습 3에서 만든 프로젝트 → 새 대화.</li><li>입력창 오른쪽 <b>음성 단추</b>를 누르고 편하게 말합니다. 끼어들어 말해도 됩니다.</li><li>다 이야기했으면 음성을 끄고 아래 글을 보냅니다.<div class="pbox"><pre>지금까지 이야기한 내용을 1차시 수업 지도안으로 정리해 줘. 표: 단계 / 시간 / 교사 활동 / 학생 활동 / 자료·유의점. 마지막에 성취기준 코드와 평가 방법도 적어 줘.</pre><button type="button" class="cp" data-p="p13">정리 요청 복사</button></div></li><li>PC에서 같은 프로젝트를 열면 그 대화가 그대로 있습니다. 이어서 활동지나 아티팩트로 만들어도 됩니다.</li></ol>
+<details><summary>이렇게 말해 보세요</summary><p class="small">"다음 주 화요일에 2학년 ○○ 단원 첫 시간이야. 아이들이 이 개념을 어려워해서, 도입에 5분짜리 활동을 넣고 싶어. 우리 교과서 몇 쪽을 쓰면 좋을지도 같이 생각해 줘."</p><p class="small">무료 계정은 음성대화가 길어지면 한도에 걸릴 수 있습니다.</p></details>
+
+<h2 id="conn"><span class="n">실습 6</span>커넥터(MCP)로 클로드에 내 도구 연결하기</h2>
+<p class="lead"><b>커넥터</b>는 클로드가 다른 서비스(지도·메신저·디자인 도구·메모장)를 직접 찾아보고 만들어 주게 하는 연결입니다. 그 연결 규칙을 <b>MCP</b>라고 합니다. <b>무료 계정도</b> 커넥터 목록에 있는 것은 연결할 수 있고, 주소를 직접 넣는 커스텀 커넥터는 1개까지 됩니다.</p>
+<ol class="steps"><li>클로드 왼쪽 아래 <b>내 이름 → 설정 → 커넥터</b>(화면에 따라 「맞춤 설정 → 커넥터」) → <b>둘러보기</b>에서 이름으로 찾아 <b>연결</b>을 누르고 그 서비스에 로그인·허용합니다.</li><li>새 대화 입력창 왼쪽 아래 <b>+ → 커넥터</b>에서 방금 연결한 것이 켜져 있는지 봅니다.</li><li>아래에서 <b>하나를 골라</b> 부탁해 봅니다. 클로드가 도구를 쓰기 전에 「허용」을 물으면 무엇을 하려는지 읽고 누르세요.</li></ol>
+<details><summary><b>카카오 PlayMCP</b> — 카카오 계정 하나로 카카오맵·카카오톡 「나와의 채팅」 등 국내 서비스</summary><ol class="steps"><li>playmcp.kakao.com 에 카카오 계정으로 로그인 → 쓰고 싶은 도구(카카오맵, 카카오톡 나와의 채팅 등)를 「도구함」에 담습니다.</li><li>클로드 커넥터 목록에서 「PlayMCP」를 찾아 연결 → 카카오 로그인·동의.</li></ol><div class="pbox"><pre>우리 학교(○○중학교) 근처에서 1학년 현장체험학습으로 갈 만한 과학관·박물관 3곳을 카카오맵으로 찾아 줘. 학교에서 대중교통으로 걸리는 시간을 표로 비교하고, 그 표를 카카오톡 나와의 채팅방으로 보내 줘.</pre><button type="button" class="cp" data-p="p14">부탁 글 복사</button></div></details><details><summary><b>캔바(Canva)</b> — 무료 캔바 계정으로 발표 자료·포스터 만들기</summary><ol class="steps"><li>클로드 커넥터 목록에서 「Canva」를 찾아 연결 → 캔바 로그인·허용.</li></ol><div class="pbox"><pre>중학교 ○학년 ○○ 단원 첫 시간 도입용 발표 자료를 캔바로 5쪽 만들어 줘. 쪽마다 큰 제목 한 줄과 학생에게 던질 질문 하나를 넣어 줘.</pre><button type="button" class="cp" data-p="p15">부탁 글 복사</button></div></details><details><summary><b>노션(Notion)</b> — 내 노션 작업 공간에 페이지 만들기·정리하기</summary><ol class="steps"><li>클로드 커넥터 목록에서 「Notion」을 찾아 연결 → 노션 로그인 → 클로드가 쓸 페이지를 고릅니다.</li></ol><div class="pbox"><pre>노션에 「2학기 수업 아이디어」 페이지를 만들고, 오늘 연수에서 해 본 것(소스 정리·스킬·프로젝트·아티팩트·음성대화)을 내 수업에 쓸 아이디어로 한 줄씩 정리해 줘.</pre><button type="button" class="cp" data-p="p16">부탁 글 복사</button></div></details>
+<details><summary>무료 계정에서 알아 둘 것</summary><ul><li>커넥터마다 이용 조건이 다릅니다. 계정에 따라 <b>유료 표시</b>가 보이면 다른 것을 고릅니다.</li><li>주소(URL)를 직접 넣는 <b>커스텀 커넥터는 1개</b>만 됩니다. 믿을 수 있는 곳의 주소만 넣으세요.</li><li>공문·학생 개인정보가 있는 계정은 연결하기 전에 학교 지침을 확인하세요. 연결은 <b>설정 → 커넥터</b>에서 언제든 끊을 수 있습니다.</li><li>커넥터를 많이 켜 두면 메시지 한도가 빨리 찹니다. 이번 대화에 쓸 것만 켜세요.</li></ul></details>
+<p>자세한 설명: <a href="google-drive.html">구글 드라이브 연결하기</a></p>
+
+<h2 id="demos"><span class="n">시연</span>연수에서 고른 시연 목록</h2>
+<table><tr><th>시연</th><th>내용</th></tr><tr><td><b>텔레그램으로 PC에 일 시키기</b></td><td>휴대폰 메시지 → PC의 클로드가 작업 → 파일로 답장</td></tr><tr><td><b>크롬을 대신 조작하기</b></td><td>패들렛·알지오매스·누리집을 클로드가 직접 누름</td></tr><tr><td><b>한글(hwpx) 문서 만들기</b></td><td>가정통신문을 스킬로 만들고 서식 비교</td></tr><tr><td><b>앱 만들어 배포하기</b></td><td>이 연수 사이트처럼 파이어베이스 앱을 말로 만들기</td></tr><tr><td><b>에이전트 여럿에게 일 나누기</b></td><td>문서 33개를 에이전트 10개가 나눠 분석</td></tr><tr><td><b>엑셀·파워포인트 안에서 쓰기</b></td><td>편성표 검산, 슬라이드 초안</td></tr><tr><td><b>에듀파인 공문 저장·결재</b></td><td>한 달 치 공문 PDF 저장, 결재대기 문서 처리</td></tr><tr><td><b>홍보 공문 → 홈페이지 게시</b></td><td>공문을 읽고 공지사항 등록, 공람·문서처리까지</td></tr></table>
+
+<h2 id="exit"><span class="n">✓</span>연수 후 바로 해 볼 일</h2>
+<ul class="ck"><li><label><input type="checkbox"><span>데스크탑앱 설치하고 로그인하기</span></label></li><li><label><input type="checkbox"><span>구글 드라이브 연결하기</span></label></li><li><label><input type="checkbox"><span>‘우리 학교 업무’ 프로젝트 만들기</span></label></li><li><label><input type="checkbox"><span>자주 하는 일 하나를 스킬로 저장하기</span></label></li><li><label><input type="checkbox"><span>음성대화로 다음 주 수업 구상하기</span></label></li></ul>
+
+<footer>연수 당일 앱의 응답 집계(사전 조사·투표·질문 벽)는 싣지 않았습니다. 실습 내용과 자료는 모두 그대로입니다.<br>클로드를 활용한 교사 업무 혁명 · 구월중학교 조창현 · 2026. 10.</footer>
+</div>
+<script>
+var P={"p1":"아래는 우리 학교 업무분장표야.\n\n# 2026학년도 새싹중학교 업무분장표\n\n> 연수 실습용 가상 자료입니다. 학교와 사람 이름은 모두 지어낸 것입니다.\n\n## 교무기획부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 김도윤 | 부장 | 교무 업무 총괄, 학사일정 수립·조정, 교원 복무, 각종 위원회(인사자문위원회) 운영, 교육계획서 |\n| 이서연 | 교사 | 출결 관리·출석인정 처리, 나이스 학적, 전입·전출, 학교생활기록부 점검 |\n| 박지훈 | 교사 | 수업시간표 편성·보결, 시간강사·기간제교원 채용, 교과서 선정·주문 |\n| 최하은 | 교사 | 정기고사 운영, 학업성적관리위원회, 평가계획 취합, 성적 처리 |\n\n## 교육과정부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 정민준 | 부장 | 교육과정 편성·운영 총괄, 학교자율시간, 교육과정 평가 |\n| 강수아 | 교사 | 자유학기 운영(주제선택·진로탐색 활동), 자유학기 운영 보고 |\n| 윤시우 | 교사 | 방과후학교 운영, 방과후 강사 채용, 수강료 관리 |\n\n## 연구정보부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 한지민 | 부장 | 교원능력개발평가, 교원 연수 총괄, 전문적학습공동체, 수업 공개 |\n| 오준서 | 교사 | 정보 기자재·태블릿 관리, 디지털 교과서·AI 교육, 개인정보 보호, 정보공시 |\n| 신예린 | 교사 | 학교 누리집 관리, 학교 신문·소식지, 교육 홍보 |\n\n## 학생생활안전부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 조현우 | 부장 | 학생생활 지도 총괄, 학교폭력 사안 처리, 학교폭력대책심의위원회 연계, 선도위원회 |\n| 임채원 | 교사 | 학교폭력 예방교육, 어울림 프로그램, 학생 인권·생활 규정, 흡연 예방교육 |\n| 장유진 | 교사 | 학교 안전교육(7대 안전교육), 재난 대피훈련, 학생자치회, 등굣길 지도 |\n\n## 진로상담부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 서동현 | 부장 | 진로교육 총괄, 진로체험(직업체험) 운영, 고입 진학 지도 |\n| 문하린 | 전문상담교사 | Wee클래스 운영, 학생 정서·행동특성검사, 자살 예방교육, 위기학생 상담 |\n\n## 인성체육부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 백승민 | 부장 | 학교스포츠클럽 운영·대회 참가, 체육 행사(체육대회), 학생건강체력평가(PAPS) |\n| 노은서 | 교사 | 인성교육, 봉사활동, 독서교육·도서관 운영, 현장체험학습(수학여행) |\n\n## 보건·급식\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 홍나래 | 보건교사 | 보건교육, 학생 건강검사, 감염병 예방, 성교육, 약물 오남용 예방교육 |\n| 송다은 | 영양교사 | 학교급식 운영, 급식 위생 점검, 식재료 검수, 식생활 교육, 급식소위원회 |\n\n## 행정실\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 유태호 | 행정실장 | 행정 업무 총괄, 학교 예산·결산, 학교운영위원회 운영 |\n| 권미소 | 주무관 | 시설 관리·공사, 물품 구매, 교육비 지원(교육급여), 통학 차량 |\n\n## 학년부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 남궁준 | 1학년부장 | 1학년 생활·학급 운영, 신입생 적응 교육 |\n| 황보람 | 2학년부장 | 2학년 생활·학급 운영 |\n| 제갈윤 | 3학년부장 | 3학년 생활·학급 운영, 졸업식, 졸업앨범 |\n\n오늘 온 공문이야. 담당자 좀 찾아 줘.\n- 2026학년도 학교폭력 예방교육 실적 제출\n- 2026학년도 교원능력개발평가 시행 계획 안내\n- 하반기 학교급식 위생 점검 결과 제출\n- 2026학년도 2학기 자유학기 운영 보고서 제출\n- 2026년 학생 정서·행동특성검사 2차 실시 안내\n- 2027학년도 교과용도서 선정 및 주문 안내\n- 학교스포츠클럽 교육감배 대회 참가 신청\n- 2학기 현장체험학습 안전요원 지원 신청\n- 학생 개인정보 처리 실태 점검\n- 2026년 다문화 학생 한국어 학급 운영 신청","p2":"오늘 온 공문이야. 담당자 좀 찾아 줘.\n- 2026학년도 학교폭력 예방교육 실적 제출\n- 2026학년도 교원능력개발평가 시행 계획 안내\n- 하반기 학교급식 위생 점검 결과 제출\n- 2026학년도 2학기 자유학기 운영 보고서 제출\n- 2026년 학생 정서·행동특성검사 2차 실시 안내\n- 2027학년도 교과용도서 선정 및 주문 안내\n- 학교스포츠클럽 교육감배 대회 참가 신청\n- 2학기 현장체험학습 안전요원 지원 신청\n- 학생 개인정보 처리 실태 점검\n- 2026년 다문화 학생 한국어 학급 운영 신청","p3":"아래 지침대로 일해 줘.\n\n---\nname: gongmun-damdang-annae\ndescription: 공문 제목이나 내용을 주면 학교 업무분장표에서 담당 부서와 담당자를 찾아 근거와 함께 안내한다. \"이 공문 누가 담당이야\", \"담당자 찾아 줘\", 공문 제목만 붙여 넣었을 때 사용한다.\n---\n\n# 공문 담당자 안내\n\n공문 제목(또는 본문)을 받으면 아래 순서로 담당자를 안내한다.\n\n## 순서\n\n1. 공문 제목에서 핵심 낱말을 뽑는다. (예: 학교폭력, 예방교육, 실적 제출)\n2. 같은 폴더의 `업무분장표.md`에서 그 낱말과 맞는 업무를 찾는다.\n3. 맞는 업무가 하나면 그 담당자를 안내한다.\n4. 맞는 업무가 둘 이상이면 모두 보여 주고, 어느 쪽이 더 가까운지 까닭을 말한다.\n5. 맞는 업무가 없으면 \"업무분장표에 없음\"이라고 말하고, 가장 가까운 부서 두 곳을 후보로 든다. 지어내지 않는다.\n\n## 답하는 모양\n\n| 공문 | 담당 부서 | 담당자 | 근거 (업무분장표 항목) |\n|---|---|---|---|\n\n표 아래에 한 줄로 판단 까닭을 적는다.\n\n## 지킬 것\n\n- 담당자 이름은 업무분장표에 적힌 그대로 쓴다.\n- 확실하지 않으면 \"교무부장 확인 필요\"라고 덧붙인다.\n- 공문 여러 건을 한꺼번에 주면 한 표에 모아 정리한다.\n\n(업무분장표.md)\n# 2026학년도 새싹중학교 업무분장표\n\n> 연수 실습용 가상 자료입니다. 학교와 사람 이름은 모두 지어낸 것입니다.\n\n## 교무기획부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 김도윤 | 부장 | 교무 업무 총괄, 학사일정 수립·조정, 교원 복무, 각종 위원회(인사자문위원회) 운영, 교육계획서 |\n| 이서연 | 교사 | 출결 관리·출석인정 처리, 나이스 학적, 전입·전출, 학교생활기록부 점검 |\n| 박지훈 | 교사 | 수업시간표 편성·보결, 시간강사·기간제교원 채용, 교과서 선정·주문 |\n| 최하은 | 교사 | 정기고사 운영, 학업성적관리위원회, 평가계획 취합, 성적 처리 |\n\n## 교육과정부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 정민준 | 부장 | 교육과정 편성·운영 총괄, 학교자율시간, 교육과정 평가 |\n| 강수아 | 교사 | 자유학기 운영(주제선택·진로탐색 활동), 자유학기 운영 보고 |\n| 윤시우 | 교사 | 방과후학교 운영, 방과후 강사 채용, 수강료 관리 |\n\n## 연구정보부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 한지민 | 부장 | 교원능력개발평가, 교원 연수 총괄, 전문적학습공동체, 수업 공개 |\n| 오준서 | 교사 | 정보 기자재·태블릿 관리, 디지털 교과서·AI 교육, 개인정보 보호, 정보공시 |\n| 신예린 | 교사 | 학교 누리집 관리, 학교 신문·소식지, 교육 홍보 |\n\n## 학생생활안전부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 조현우 | 부장 | 학생생활 지도 총괄, 학교폭력 사안 처리, 학교폭력대책심의위원회 연계, 선도위원회 |\n| 임채원 | 교사 | 학교폭력 예방교육, 어울림 프로그램, 학생 인권·생활 규정, 흡연 예방교육 |\n| 장유진 | 교사 | 학교 안전교육(7대 안전교육), 재난 대피훈련, 학생자치회, 등굣길 지도 |\n\n## 진로상담부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 서동현 | 부장 | 진로교육 총괄, 진로체험(직업체험) 운영, 고입 진학 지도 |\n| 문하린 | 전문상담교사 | Wee클래스 운영, 학생 정서·행동특성검사, 자살 예방교육, 위기학생 상담 |\n\n## 인성체육부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 백승민 | 부장 | 학교스포츠클럽 운영·대회 참가, 체육 행사(체육대회), 학생건강체력평가(PAPS) |\n| 노은서 | 교사 | 인성교육, 봉사활동, 독서교육·도서관 운영, 현장체험학습(수학여행) |\n\n## 보건·급식\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 홍나래 | 보건교사 | 보건교육, 학생 건강검사, 감염병 예방, 성교육, 약물 오남용 예방교육 |\n| 송다은 | 영양교사 | 학교급식 운영, 급식 위생 점검, 식재료 검수, 식생활 교육, 급식소위원회 |\n\n## 행정실\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 유태호 | 행정실장 | 행정 업무 총괄, 학교 예산·결산, 학교운영위원회 운영 |\n| 권미소 | 주무관 | 시설 관리·공사, 물품 구매, 교육비 지원(교육급여), 통학 차량 |\n\n## 학년부\n\n| 이름 | 직위 | 담당 업무 |\n|---|---|---|\n| 남궁준 | 1학년부장 | 1학년 생활·학급 운영, 신입생 적응 교육 |\n| 황보람 | 2학년부장 | 2학년 생활·학급 운영 |\n| 제갈윤 | 3학년부장 | 3학년 생활·학급 운영, 졸업식, 졸업앨범 |\n\n오늘 온 공문이야. 담당자 좀 찾아 줘.\n- 2026학년도 학교폭력 예방교육 실적 제출\n- 2026학년도 교원능력개발평가 시행 계획 안내\n- 하반기 학교급식 위생 점검 결과 제출\n- 2026학년도 2학기 자유학기 운영 보고서 제출\n- 2026년 학생 정서·행동특성검사 2차 실시 안내\n- 2027학년도 교과용도서 선정 및 주문 안내\n- 학교스포츠클럽 교육감배 대회 참가 신청\n- 2학기 현장체험학습 안전요원 지원 신청\n- 학생 개인정보 처리 실태 점검\n- 2026년 다문화 학생 한국어 학급 운영 신청","p4":"너는 우리 학교 ○학년 ○○ 교과 수업을 함께 준비하는 동료 교사야.\n- 답할 때는 이 프로젝트에 올린 교육과정·교과서·평가계획을 먼저 보고, 근거(성취기준 코드, 교과서 쪽)를 밝혀 줘.\n- 자료에 없는 내용은 지어내지 말고 \"자료에 없음\"이라고 말해 줘.\n- 학생 활동은 우리 학교 수업 시간(45분)에 맞춰 짜 줘.","p5":"다음 주에 가르칠 단원의 성취기준과 차시 계획을 표로 정리해 줘.","p6":"이 단원 수행평가 아이디어 3개와 채점 기준표를 만들어 줘.","p7":"이 단원에서 학생들이 자주 틀리는 개념과, 그걸 확인할 질문 5개를 알려 줘.","p8":"중1 「좌표평면」 개념을 확인하는 퀴즈 웹페이지를 만들어 줘. 10문항, 누르면 바로 정답과 풀이, 마지막에 점수. 휴대폰에서도 보기 좋게.","p9":"중2 「물질의 상태 변화」를 온도 슬라이더로 움직여 보는 시뮬레이션 웹페이지를 만들어 줘. 입자 모형이 움직이게.","p10":"이번 단원 낱말 20개로 뜻 맞히기 카드 게임 웹페이지를 만들어 줘. 뒤집기 카드, 맞힌 개수 표시.","p11":"조선 시대 주요 사건 8개를 시간 순서대로 끌어다 놓는 연표 맞추기 활동 웹페이지를 만들어 줘.","p12":"모둠 6개를 무작위로 짜 주고 발표 순서를 룰렛으로 뽑는 수업 도구 웹페이지를 만들어 줘.","p13":"지금까지 이야기한 내용을 1차시 수업 지도안으로 정리해 줘. 표: 단계 / 시간 / 교사 활동 / 학생 활동 / 자료·유의점. 마지막에 성취기준 코드와 평가 방법도 적어 줘.","p14":"우리 학교(○○중학교) 근처에서 1학년 현장체험학습으로 갈 만한 과학관·박물관 3곳을 카카오맵으로 찾아 줘. 학교에서 대중교통으로 걸리는 시간을 표로 비교하고, 그 표를 카카오톡 나와의 채팅방으로 보내 줘.","p15":"중학교 ○학년 ○○ 단원 첫 시간 도입용 발표 자료를 캔바로 5쪽 만들어 줘. 쪽마다 큰 제목 한 줄과 학생에게 던질 질문 하나를 넣어 줘.","p16":"노션에 「2학기 수업 아이디어」 페이지를 만들고, 오늘 연수에서 해 본 것(소스 정리·스킬·프로젝트·아티팩트·음성대화)을 내 수업에 쓸 아이디어로 한 줄씩 정리해 줘."};
+document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){var t=P[b.getAttribute('data-p')],l=b.textContent;
+  var done=function(){b.textContent='복사됨';b.classList.add('ok');setTimeout(function(){b.textContent=l;b.classList.remove('ok');},1500);};
+  var fb=function(){var x=document.createElement('textarea');x.value=t;x.style.position='fixed';x.style.opacity='0';document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){b.textContent='Ctrl+C';}x.remove();};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,fb);else fb();};});
+</script>
+</body>
+</html>
